@@ -1,0 +1,50 @@
+<div class="project-content d-flex">
+  <div class="project-text d-flex flex-column">
+    <h1 class="project-title">{{title}}</h1>
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="mr-4">dashboard</mat-icon>
+            Overview
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>
+          {{overview}}
+        </p>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="mr-4">assignment</mat-icon>
+            Responsibilities
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ul class="project-list">
+          <li *ngFor="let responsibility of responsibilities">
+            <b>{{responsibility.title}}:</b> {{responsibility.content}}
+          </li>
+        </ul>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="mr-4">emoji_events</mat-icon>
+            Achievements
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ul class="project-list">
+          <li *ngFor="let achievement of achievements" class="project-list-item">{{achievement}}</li>
+        </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="project-galery d-flex flex-column justify-content-between">
+    <div>
+      <img [src]="mainImg" />
+    </div>
+    <div class="d-flex">
+      <img *ngFor="let img of sideImgs" [src]="img" />
+    </div>
+  </div>
+</div>

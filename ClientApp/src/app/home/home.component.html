@@ -1,0 +1,25 @@
+  <!--<div class="position-absolute d-flex justify-content-center title vw-100 mt-4"></div>-->
+<div class="position-absolute d-flex flex-column align-items-center justify-content-between contact-container">
+  <span>Links</span>
+  <!--<button [routerLink]="['/about']" mat-icon-button>
+    <mat-icon>person</mat-icon>
+  </button>-->
+  <button (click)="goToLink('https://github.com/ElMehdiBouamama')" mat-icon-button>
+    <mat-icon svgIcon="github"></mat-icon>
+  </button>
+  <button (click)="goToLink('https://www.linkedin.com/in/el-mehdi-bouâmama-b9a576133/')" mat-icon-button>
+    <mat-icon svgIcon="linkedin"></mat-icon>
+  </button>
+</div>
+<div class="position-absolute project-container nav-container">
+  <button [routerLink]="['/projects']" class="d-flex flex-column-reverse align-items-center" mat-button>
+    <mat-icon>arrow_downward</mat-icon>
+    <span>Projects</span>
+  </button>
+</div>
+<div class="position-absolute about-container nav-container">
+  <button [routerLink]="['/about']" class="d-flex flex-column-reverse align-items-center" mat-button>
+    <mat-icon>arrow_backward</mat-icon>
+    <span>Contact</span>
+  </button>
+</div>

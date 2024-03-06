@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import 'material-icons/iconfont/material-icons.css';*/
+
+/* Provide sufficient contrast against white background */
+* {
+  font-family: 'Inder', Montserrat, sans-serif;
+  color: white;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+:root {
+  --mdc-tab-indicator-active-indicator-color: white;
+}
+
+html {
+  font-size: 14px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+app-graphics {
+  position: absolute;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  background-color: #8D5CF6;
+  padding: 16px 46px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0px 4px 4px #00000025;
+  border: none;
+  width: fit-content;
+}
+
+  .btn-primary:hover {
+    background-color: #8252e8;
+  }
+
+  .btn-primary:active {
+    background-color: #6937d3 !important;
+  }
+
+.btn-link {
+  color: #8D5CF6;
+  font-weight: bold;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  text-decoration: none;
+}
+
+.std-container-px {
+  padding-right: 14%;
+  padding-left: 14%;
+}
+
+.dark-bg {
+  background-color: #26335D;
+}
+
+.separator {
+  border-top: 7px solid #FF7B52;
+  width: 94px;
+}
+
+.std-gap {
+  gap: 1.1875rem;
+}
+
+.footer-container {
+}

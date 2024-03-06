@@ -1,0 +1,58 @@
+.content-container {
+  position: fixed;
+  width: 84%;
+  height: 78%;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-image: radial-gradient( ellipse 840px 840px at 140px 45px, #47a6ab38 0%, #2a5b71a6 100% );
+  box-shadow: 4px 4px 4px 0px #0006;
+}
+
+.details {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+}
+
+.content-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #A7C8D580;
+  box-shadow: inset 0px 4px 8px -4px #00000080;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.content-container * {
+  text-shadow: 0px 2px 4px #00000080;
+}
+
+.home-container {
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-container > button {
+  height: fit-content;
+  padding: 6px 12px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 4px #00000060);
+  font-size: 1rem;
+}
+
+::ng-deep .mat-mdc-tab-body.mat-mdc-tab-body-active, ::ng-deep .mat-mdc-tab-body-wrapper {
+  /*overflow: visible !important;*/
+  height: 100%;
+}
+
+::ng-deep .mat-mdc-tab-labels {
+  padding: 1% 2% !important;
+}
+
+::ng-deep .mdc-tab__text-label {
+  color: white !important;
+}

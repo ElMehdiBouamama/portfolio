@@ -1,0 +1,95 @@
+.project-content {
+  /*background-color: #f4f4f4;*/
+  height: 100%;
+  padding: 32px;
+  border-radius: 10px;
+  gap: 16px;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.project-title {
+  text-align: center;
+}
+
+mat-accordion {
+  overflow: auto;
+}
+
+mat-icon {
+  margin-right: 1rem;
+}
+
+.mat-expansion-panel {
+  background: #ffffff14 !important;
+  box-shadow: none !important;
+}
+
+.mat-expansion-panel-header-title {
+  color: white;
+  font-size: 16px;
+}
+
+.project-list-item {
+  color: white;
+  font-size: 15px;
+  font-style: italic;
+}
+
+.project-galery {
+  gap: 16px;
+}
+
+  .project-galery > div {
+    gap: 32px;
+  }
+
+  .project-galery img {
+    object-fit: cover;
+    box-shadow: 0px 4px 4px -2px #00000060;
+  }
+
+  .project-galery > div:nth-child(1) {
+    height: 60%;
+    /*overflow: hidden;*/
+  }
+
+    .project-galery > div:nth-child(1) > img {
+      height: 100%;
+      width: 100%;
+    }
+
+  .project-galery > div:nth-child(2) > img {
+    width: 192px;
+    height: 192px;
+  }
+
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 8px 24px 0px !important;
+}
+
+::ng-deep .mat-expansion-indicator::after {
+  color: white;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 50%;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #549dbe10;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #398eb480;
+}
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #549dbe60;
+  }

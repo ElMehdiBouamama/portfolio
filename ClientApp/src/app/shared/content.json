@@ -1,0 +1,210 @@
+{
+  "projects": [
+    {
+      "name": "ExLibris",
+      "title": "Online Rubber Stamp Business MVP",
+      "overview": "Exlibris is a user-friendly online platform that simplifies the creation and ordering of custom rubber stamps for entrepreneurs and businesses. By offering direct online design tools and seamless Excel integration, Exlibris streamlines the process, saving time and effort. With a wide range of customization options, Exlibris provides a cost-effective solution tailored to individual needs.",
+      "responsibilities": [
+        {
+          "title": "Business Strategy",
+          "content": "Formulated a comprehensive business plan and conducted in-depth market research to identify target demographics and competition."
+        },
+        {
+          "title": "Web Application Conceptualization",
+          "content": "Conceptualized Exlibris, focusing on user-friendly design and seamless integration of Excel data for stamp customization."
+        },
+        {
+          "title": "Backend Development",
+          "content": "Developed the backend using ASP.NET, Entity Framework ORM, and SQL Server to ensure efficient data management and processing."
+        },
+        {
+          "title": "Software Architecture",
+          "content": "Designed a robust microservices architecture, implemented front end for backends/gateway routing, and utilized service mesh with Envoy Proxy and gRPC for seamless communication."
+        },
+        {
+          "title": "Data Management",
+          "content": "Implemented data scraping, web crawling, and ETL processes using Scrapy and Entity Framework to populate the database with accurate and relevant information."
+        },
+        {
+          "title": "Database Design",
+          "content": "Modeled, implemented, and initialized the SQL Server database to store user data and stamp designs efficiently."
+        },
+        {
+          "title": "Web Interface Design",
+          "content": "Designed the user interface using Figma, focusing on intuitive design principles to enhance user experience."
+        },
+        {
+          "title": "Rubber Stamp Design Tool",
+          "content": "Developed an online tool using Angular, NGRX, RXJS, and fabric.js to allow users to design and customize rubber stamps with ease."
+        },
+        {
+          "title": "CI/CD Implementation",
+          "content": "Implemented CI/CD pipelines using Azure DevOps and GitHub to automate the build and deployment process, ensuring quick and reliable updates."
+        }
+      ],
+      "achievements": [
+        "Successfully designed and implemented the MVP, enabling users to design rubber stamps online and streamline the design process using Excel data.",
+        "Developed a robust backend system, ensuring the reliability and scalability of the application through micro services adoption.",
+        "Implemented data scraping, web crawling, and ETL processes, ensuring the accuracy and completeness of the database.",
+        "Designed a user-friendly web interface, enhancing the overall user experience.",
+        "Utilized various design patterns in the implementation of the rubber stamp manipulation tool, enhancing functionality and maintainability.",
+        "Implemented CI/CD pipelines, automating the build and deployment process and increasing development workflow efficiency."
+      ],
+      "mainImg": "https://random.imagecdn.app/800/400",
+      "sideImgs": [
+        "https://random.imagecdn.app/400/400",
+        "https://random.imagecdn.app/395/395",
+        "/assets/imgs/projects/augurisk1.png"
+      ]
+    },
+    {
+      "name": "Spotbills",
+      "title": "AI and Backend Development for Spotpeers Messaging App",
+      "overview": "SpotBills had a project called Spotpeers which is a messaging app, it targeted the USA market. Spotpeers offered innovative features such as voice cloning, allowing users to hear messages in the sender's voice using voice cloning and text-to-speech (TTS) technology. I focused on the management, data science, and backend development aspects of Spotpeers.",
+      "responsibilities": [
+        {
+          "title": "Work Process Design",
+          "content": "Designed and edited documents related to the AI team's work process, ensuring clarity and efficiency in workflow."
+        },
+        {
+          "title": "Requirement Gathering",
+          "content": "Collected technical and functional requirements for the product, ensuring alignment with business goals."
+        },
+        {
+          "title": "Research and Documentation",
+          "content": "Documented and gathered research papers related to voice technologies, including Automatic Speech Recognition (ASR) and Text-to-Speech (TTS)."
+        },
+        {
+          "title": "Recruitment Process Assistance",
+          "content": "Participated in and assisted with the recruitment process, ensuring the team had the necessary skills and expertise."
+        },
+        {
+          "title": "Exploration of SOTA Models",
+          "content": "Explored and tested various state-of-the-art models related to ASR (Jasper), TTS (Tacotron2), and voice cloning (SV2TTS)."
+        },
+        {
+          "title": "TTS System Prototyping",
+          "content": "Prototyped a TTS system embedded within its API, ensuring compatibility and functionality."
+        },
+        {
+          "title": "Scalable Product Planning",
+          "content": "Planned for the implementation of a scalable product, including documentation and industry standards."
+        },
+        {
+          "title": "Team Coordination",
+          "content": "Coordinated between the AI team, management, and other departments, ensuring effective communication and collaboration."
+        }
+      ],
+      "achievements": [
+        "Explored and tested state-of-the-art models, ensuring the use of cutting-edge technology in the product.",
+        "Prototyped a TTS system, enhancing the messaging app's functionality and user experience.",
+        "Planned for a scalable product, ensuring its long-term viability and success in the market.",
+        "Successfully collaborated with the design team to create a visually stunning 3D website that showcased the company's products or services.",
+        "Implemented three.js to create dynamic and interactive 3D elements, enhancing the website's visual appeal and user engagement.",
+        "Coordinated between teams, facilitating effective communication and collaboration.",
+        "Successfully designed and edited documents, improving the efficiency and predictability of the AI team's workflow.",
+        "Gathered and documented requirements, ensuring the product met the needs and standards of the target market.",
+        "Researched and documented advancements in voice technologies, contributing to the development of innovative features.",
+        "Assisted in the recruitment process, ensuring the team had the necessary skills to deliver high-quality results."
+      ],
+      "mainImg": "https://random.imagecdn.app/810/400",
+      "sideImgs": [
+        "https://random.imagecdn.app/420/220",
+        "https://random.imagecdn.app/415/415",
+        "/assets/imgs/projects/augurisk1.png"
+      ]
+    },
+    {
+      "name": "Augurisk",
+      "title": "Climate Change Impact Forecasting Software",
+      "overview": "Augurisk is a comprehensive risk assessment platform covering risks such as Crime, Storms, Wildfires, Floods, and 8 other risk factors. It utilizes proprietary data and scoring algorithms to provide a thorough risk analysis. Augurisk's mission is to assist people and businesses in better preparing for crime and natural disasters anywhere in the US. Enterprises use Augurisk's data to decrease their risk exposure, create value for their users, and help accelerate processes and sales growth.",
+      "responsibilities": [
+        {
+          "title": "Research and Modeling",
+          "content": "Conducted in-depth research and developed models to predict the impact of climate change on properties, considering factors such as sea-level rise, extreme weather events, and changing environmental regulations."
+        },
+        {
+          "title": "Planning and Coordination",
+          "content": "Collaborated with teams to create a detailed project plan, ensuring that milestones were met and the project progressed smoothly."
+        },
+        {
+          "title": "Data Acquisition and Processing",
+          "content": "Oversaw the acquisition of data and developed algorithms to process and analyze it, ensuring accurate and reliable results."
+        },
+        {
+          "title": "Software Development",
+          "content": "Led the development of the software, including the implementation of features for data visualization, scenario analysis, and risk assessment."
+        },
+        {
+          "title": "Integration of Environmental and Social Factors",
+          "content": "Collaborated with teams to create a detailed project plan, ensuring that milestones were met and the project progressed Incorporated a wide range of environmental and social factors into the software, such as population density, infrastructure quality, and proximity to coastlines, to provide a comprehensive analysis of property risks."
+        },
+        {
+          "title": "User Interface Design",
+          "content": "Designed the user interface of the software to be intuitive and user-friendly, allowing users to easily navigate and understand the data and analysis."
+        },
+        {
+          "title": "Testing and Quality Assurance",
+          "content": "Conducted thorough testing of the software to ensure its accuracy, reliability, and effectiveness in predicting climate change impacts."
+        }
+      ],
+      "achievements": [
+        "Successfully developed and presented Augurisk, providing investors with a powerful tool to assess the potential impact of climate change on properties.",
+        "Integrated a wide range of social and environmental factors into the software, providing users with a comprehensive and accurate analysis of property risks.",
+        "Designed and implemented a user-friendly interface that made complex data and analysis accessible to users, improving decision-making processes."
+      ],
+      "mainImg": "/assets/imgs/projects/augurisk.png",
+      "sideImgs": [
+        "/assets/imgs/projects/augurisk1.png",
+        "/assets/imgs/projects/augurisk2.png",
+        "/assets/imgs/projects/augurisk1.png"
+      ]
+    },
+    {
+      "name": "DSI Services et Conseils",
+      "title": "Data Science for Vehicle Rental Company",
+      "overview": "UCAR, a vehicle rental company based in France, engaged in several data science projects. These projects encompassed implementing a reporting system with PowerBI, optimizing database search in SQL Server, developing front-end authentication without API calls using Bloom Filter with Typescript/Angular, and creating a model to predict fuel consumption prices based on journey details, vehicle type, and other factors using Python, Pandas, NumPy, and TensorFlow.",
+      "responsibilities": [
+        {
+          "title": "Reporting System Implementation",
+          "content": "Implemented a reporting system using PowerBI to provide insights into company data and facilitate decision-making."
+        },
+        {
+          "title": "Database Optimization",
+          "content": "Optimized database search operations in SQL Server to improve performance and efficiency."
+        },
+        {
+          "title": "Front-end Authentication",
+          "content": "Implemented front-end authentication without API calls using Bloom Filter with Typescript/Angular, ensuring secure access to the application."
+        },
+        {
+          "title": "Fuel Consumption Price Prediction",
+          "content": "Developed a model to predict fuel consumption prices based on journey details, vehicle type, and other factors using Python, Pandas, NumPy, and TensorFlow, providing valuable insights for pricing strategies."
+        },
+        {
+          "title": "Frontend Development",
+          "content": "Implementing the Frontend designs using Angular, and service implementation that connect to the BackEnd API."
+        }
+      ],
+      "achievements": [
+        "Successfully implemented a reporting system with PowerBI, providing stakeholders with valuable insights into company data.",
+        "Optimized database search operations, improving overall system performance and efficiency.",
+        "Implemented front-end authentication without API calls, ensuring secure access to the application.",
+        "Developed a model to predict fuel consumption prices, providing valuable insights for pricing strategies and cost management."
+      ],
+      "mainImg": "https://random.imagecdn.app/820/400",
+      "sideImgs": [
+        "https://random.imagecdn.app/430/430",
+        "https://random.imagecdn.app/425/425",
+        "/assets/imgs/projects/augurisk1.png"
+      ]
+    }
+  ],
+  "about": {
+    "bio": "Porteur d'un profil polyvalent (Mahématique, Developpement, Datascience, Management), je suis une personne très curieuse et reservée, je me dédie donc entièrement à mon travail et essaye au mieux de contribuer au développement durable de notre planéte.",
+    "cta": "Let's collaborate!",
+    "name": "El Mehdi Bouâmama",
+    "picture": "/assets/imgs/picture.png",
+    "role": "Data Scientist, Developer"
+  }
+}

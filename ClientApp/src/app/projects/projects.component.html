@@ -1,0 +1,17 @@
+<div class="position-absolute home-container nav-container">
+  <button [routerLink]="['/']" class="d-flex flex-column align-items-center" mat-button>
+    <mat-icon>arrow_upward</mat-icon>
+    <span>Home</span>
+  </button>
+</div>
+<mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start" class="content-container">
+  <mat-tab *ngFor="let project of projects" [label]="project.name">
+    <div class="content-bg"></div>
+    <app-project [title]="project.title"
+                 [overview]="project.overview"
+                 [responsibilities]="project.responsibilities"
+                 [achievements]="project.achievements"
+                 [mainImg]="project.mainImg"
+                 [sideImgs]="project.sideImgs"></app-project>
+  </mat-tab>
+</mat-tab-group>

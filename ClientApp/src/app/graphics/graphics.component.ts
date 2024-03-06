@@ -18,7 +18,7 @@ import { BehaviorSubject, distinctUntilChanged, from, timer } from 'rxjs';
 @Component({
   selector: 'app-graphics',
   templateUrl: './graphics.component.html',
-  styleUrls: ['./graphics.component.css']
+  styleUrls: ['./graphics.component.scss']
 })
 export class GraphicsComponent implements AfterViewInit {
   @ViewChild('graphicsContainer', { static: true }) el: ElementRef;
@@ -45,7 +45,7 @@ export class GraphicsComponent implements AfterViewInit {
       this.cameraControl = new CameraController(this.el.nativeElement);
       this.lightsSetup = new LightsSetup(this.sceneHandler.scene);
       this.guiControl = new GUIController(this.sceneHandler.renderer, this.sceneHandler.camera);
-      //this.guiControl.gui.hide();
+      this.guiControl.gui.hide();
       this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.guiControl.objectsFolder, this.sceneHandler.camera);
       this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.guiControl.sceneFolder, this.sceneHandler.camera);
       // Loading assets

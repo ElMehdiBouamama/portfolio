@@ -5,7 +5,7 @@ import data from '../shared/content.json';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent {
   img: string = "../../../assets/hero-figure.png";

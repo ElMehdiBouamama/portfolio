@@ -50,16 +50,16 @@
         "Utilized various design patterns in the implementation of the rubber stamp manipulation tool, enhancing functionality and maintainability.",
         "Implemented CI/CD pipelines, automating the build and deployment process and increasing development workflow efficiency."
       ],
-      "mainImg": "https://random.imagecdn.app/800/400",
+      "mainImg": "/assets/imgs/projects/exlibris.png",
       "sideImgs": [
-        "https://random.imagecdn.app/400/400",
-        "https://random.imagecdn.app/395/395",
-        "/assets/imgs/projects/augurisk1.png"
+        "/assets/imgs/projects/exlibris.png",
+        "/assets/imgs/projects/exlibris1.png",
+        "/assets/imgs/projects/exlibris2.png"
       ]
     },
     {
       "name": "Spotbills",
-      "title": "AI and Backend Development for Spotpeers Messaging App",
+      "title": "Voice Cloning Technology For Messaging App",
       "overview": "SpotBills had a project called Spotpeers which is a messaging app, it targeted the USA market. Spotpeers offered innovative features such as voice cloning, allowing users to hear messages in the sender's voice using voice cloning and text-to-speech (TTS) technology. I focused on the management, data science, and backend development aspects of Spotpeers.",
       "responsibilities": [
         {
@@ -107,11 +107,11 @@
         "Researched and documented advancements in voice technologies, contributing to the development of innovative features.",
         "Assisted in the recruitment process, ensuring the team had the necessary skills to deliver high-quality results."
       ],
-      "mainImg": "https://random.imagecdn.app/810/400",
+      "mainImg": "/assets/imgs/projects/spotbills1.png",
       "sideImgs": [
-        "https://random.imagecdn.app/420/220",
-        "https://random.imagecdn.app/415/415",
-        "/assets/imgs/projects/augurisk1.png"
+        "/assets/imgs/projects/spotbills.png",
+        "/assets/imgs/projects/spotbills1.png",
+        "/assets/imgs/projects/spotbills2.png"
       ]
     },
     {
@@ -155,14 +155,14 @@
       ],
       "mainImg": "/assets/imgs/projects/augurisk.png",
       "sideImgs": [
-        "/assets/imgs/projects/augurisk1.png",
+        "/assets/imgs/projects/augurisk.png",
         "/assets/imgs/projects/augurisk2.png",
         "/assets/imgs/projects/augurisk1.png"
       ]
     },
     {
       "name": "DSI Services et Conseils",
-      "title": "Data Science for Vehicle Rental Company",
+      "title": "Predictive Models Solutions For Fleet Management",
       "overview": "UCAR, a vehicle rental company based in France, engaged in several data science projects. These projects encompassed implementing a reporting system with PowerBI, optimizing database search in SQL Server, developing front-end authentication without API calls using Bloom Filter with Typescript/Angular, and creating a model to predict fuel consumption prices based on journey details, vehicle type, and other factors using Python, Pandas, NumPy, and TensorFlow.",
       "responsibilities": [
         {
@@ -192,11 +192,102 @@
         "Implemented front-end authentication without API calls, ensuring secure access to the application.",
         "Developed a model to predict fuel consumption prices, providing valuable insights for pricing strategies and cost management."
       ],
-      "mainImg": "https://random.imagecdn.app/820/400",
+      "mainImg": "/assets/imgs/projects/dsi2.png",
       "sideImgs": [
-        "https://random.imagecdn.app/430/430",
-        "https://random.imagecdn.app/425/425",
-        "/assets/imgs/projects/augurisk1.png"
+        "/assets/imgs/projects/dsi.png",
+        "/assets/imgs/projects/dsi1.png",
+        "/assets/imgs/projects/dsi2.png"
+      ]
+    },
+    {
+      "name": "New Wave Telecom and Technologies",
+      "title": "License Plate Recognition On Hololens",
+      "overview": "During my internship at NewWave, a leading provider in the US of innovative business solutions for government and industry, I contributed to the development of a license plate recognition algorithm. This algorithm was a key R&D technology aimed at improving the company's solutions.,",
+      "responsibilities": [
+        {
+          "title": "License Plate Recognition Algorithm Development",
+          "content": "Developed a license plate recognition algorithm using OCR (Optical Character Recognition) technology."
+        },
+        {
+          "title": "Data Preparation",
+          "content": "Generated variations from the dataset consisting of pictures of license plates to create a large dataset for training the models."
+        },
+        {
+          "title": "Exploratory Data Analysis",
+          "content": "Conducted exploratory data analysis to understand the dataset and identify patterns or insights."
+        },
+        {
+          "title": "Data Processing",
+          "content": "Processed the collected data to prepare it for training the algorithm."
+        },
+        {
+          "title": "Algorithm Implementation",
+          "content": "Implemented the algorithm as a real-time tool on a HoloLens device using the Unity game engine."
+        },
+        {
+          "title": "Database Integration",
+          "content": "Integrated a database of license plates and their owners to display information in real-time on the HoloLens screen."
+        }
+      ],
+      "achievements": [
+        "Developed a robust license plate recognition algorithm using OCR technology.",
+        "Conducted exploratory data analysis to gain insights from the dataset.",
+        "Created a large and diverse dataset for training the algorithm, ensuring its effectiveness in various conditions.",
+        "Successfully implemented the algorithm as a real-time tool on a HoloLens device using the Unity game engine."
+      ],
+      "mainImg": "/assets/imgs/projects/nwtt1.png",
+      "sideImgs": [
+        "/assets/imgs/projects/nwtt.png",
+        "/assets/imgs/projects/nwtt1.png",
+        "/assets/imgs/projects/nwtt2.png"
+      ]
+    },
+    {
+      "name": "Tweets2MBTI",
+      "title": "Personality Classification From Tweets",
+      "overview": "Tweets2MBTI is a personal project where I collected a dataset on user tweet accounts and their associated MBTI personality types. I then scraped the data from their tweets and developed a machine learning model using neural networks and word2vec/doc2vec to predict the personality type of the user from their tweets. The model was built using TensorFlow and ran on Google Cloud Platform (GCP).",
+      "responsibilities": [
+        {
+          "title": "Data Collection",
+          "content": "Collected a dataset on user tweet accounts and their associated MBTI personality types."
+        },
+        {
+          "title": "Data Scraping",
+          "content": "Scraped the data from the tweets of the users in the dataset."
+        },
+        {
+          "title": "Exploratory Data Analysis",
+          "content": "Conducted exploratory data analysis to gain insights into the dataset to make sure the classes in the dataset are balanced. Then ran bootstraping on the dataset"
+        },
+        {
+          "title": "Model Development",
+          "content": "Developed a machine learning model using neural networks, word2vec/doc2vec, and TensorFlow to predict the personality type of the user from their tweets."
+        },
+        {
+          "title": "Model Design and Training",
+          "content": "Made from scratch and trained the model using the collected dataset and TensorFlow."
+        },
+        {
+          "title": "Training Dashboard",
+          "content": "Used TensorBoard to monitor the training process and performance of the model."
+        },
+        {
+          "title": "GCP Computing",
+          "content": "Utilized Google Cloud Platform (GCP) for computing and running the code."
+        }
+      ],
+      "achievements": [
+        "Successfully collected and scraped a dataset on user tweet accounts and their associated MBTI personality types.",
+        "Developed a machine learning model that predicts the personality type of the user from their tweets.",
+        "Conducted exploratory data analysis to gain insights into the dataset.",
+        "Utilized Google Cloud Platform (GCP) for computing and running the code efficiently.",
+        "Implemented a training dashboard with TensorBoard to monitor the training process"
+      ],
+      "mainImg": "/assets/imgs/projects/tweet.png",
+      "sideImgs": [
+        "/assets/imgs/projects/tweet.png",
+        "/assets/imgs/projects/tweet1.png",
+        "/assets/imgs/projects/tweet2.png"
       ]
     }
   ],

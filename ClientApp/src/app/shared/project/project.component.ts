@@ -22,10 +22,15 @@ export class ProjectComponent {
     "Integrated a wide range of social and environmental factors into the software, providing users with a comprehensive and accurate analysis of property risks.",
     "Designed and implemented a user-friendly interface that made complex data and analysis accessible to users, improving decision-making processes."
   ]
-  @Input() mainImg = "/assets/imgs/projects/augurisk.png";
+  @Input() mainImg = "https://picsum.photos/810/400";
   @Input() sideImgs = [
-    "/assets/imgs/projects/augurisk1.png",
-    "/assets/imgs/projects/augurisk2.png",
-    "/assets/imgs/projects/augurisk1.png"
+    "https://picsum.photos/420/220",
+    "https://picsum.photos/410/410",
+    "https://picsum.photos/400/400"
   ]
+
+  use(img: string) {
+    this.mainImg = img;
+  }
+
 }

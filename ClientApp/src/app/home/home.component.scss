@@ -1,15 +1,27 @@
-a, span {
+$color_1: white;
+$color_2: #70869d;
+$font-family_1: arvo;
+
+a {
   font-weight: bolder;
   font-size: 1rem;
-  color: white;
+  color: $color_1;
+  position: relative;
+  text-decoration: none;
+}
+
+span {
+  font-weight: bolder;
+  font-size: 1rem;
+  color: $color_1;
   position: relative;
   text-decoration: none;
 }
 
 .title {
-  color: #70869d;
+  color: $color_2;
   letter-spacing: .15em;
-  font-family: arvo;
+  font-family: $font-family_1;
   text-shadow: -3px -3px 0 #222, 3px -3px 0 #222, -3px 3px 0 #222, 3px 3px 0 #222, 4px 4px 0 #fff, 5px 5px 0 #fff, 6px 6px 0 #fff, 7px 7px 0 #fff;
   font-size: 4rem;
 }
@@ -25,10 +37,10 @@ a, span {
   filter: drop-shadow(2px 2px 4px #00000040);
 }
 
-.about-container{
-    top: 50%;
-    left: 1.5rem;
-    transform: translate(0, -50%);
+.about-container {
+  top: 50%;
+  left: 1.5rem;
+  transform: translate(0, -50%);
 }
 
 .project-container {
@@ -37,36 +49,11 @@ a, span {
   transform: translate(-50%, 0);
 }
 
-.nav-container > button {
-  height: fit-content;
-  padding: 6px 12px;
-  border-radius: 10px;
-  filter: drop-shadow(2px 2px 4px #00000050);
+.nav-container {
+  > button {
+    height: fit-content;
+    padding: 6px 12px;
+    border-radius: 10px;
+    filter: drop-shadow(2px 2px 4px #00000050);
+  }
 }
-
-/*.projects:hover > mat-icon, .contact-container:hover > mat-icon {
-    color: white;
-  }
-
-  .projects:hover > a, .contact-container:hover > a {
-    animation-delay: 0.50ms;
-    color: white;*/
-/*#72a3a9*/
-/*}*/
-/*
-  .projects > a::before, .contact-container > a::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: white;
-    transform: scaleX(0);
-    transition: transform 0.2s ease;
-  }
-*/
-/*.projects:hover > a::before, .contact-container:hover > a::before {
-    transform: scaleX(1);
-  }*/

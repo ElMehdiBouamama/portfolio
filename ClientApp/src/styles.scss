@@ -1,10 +1,19 @@
+$color_1: white;
+$color_2: #0366d6;
+$color_3: #e01a76;
+$color_4: #8D5CF6;
+$font-family_1: 'Inder', Montserrat, sans-serif;
+$background-color_1: #8D5CF6;
+$background-color_2: #8252e8;
+$background-color_3: #6937d3;
+$background-color_4: #26335D;
+
 /* You can add global styles to this file, and also import other style files */
 /*@import 'material-icons/iconfont/material-icons.css';*/
-
 /* Provide sufficient contrast against white background */
 * {
-  font-family: 'Inder', Montserrat, sans-serif;
-  color: white;
+  font-family: $font-family_1;
+  color: $color_1;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -29,40 +38,34 @@ app-graphics {
   position: absolute;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
 a {
-  color: #0366d6;
+  color: $color_2;
 }
 
 code {
-  color: #e01a76;
+  color: $color_3;
 }
 
 .btn-primary {
-  background-color: #8D5CF6;
+  background-color: $background-color_1;
   padding: 16px 46px;
   font-weight: bold;
   font-size: 14px;
   box-shadow: 0px 4px 4px #00000025;
   border: none;
   width: fit-content;
+
+  &:hover {
+    background-color: $background-color_2;
+  }
+
+  &:active {
+    background-color: $background-color_3 !important;
+  }
 }
 
-  .btn-primary:hover {
-    background-color: #8252e8;
-  }
-
-  .btn-primary:active {
-    background-color: #6937d3 !important;
-  }
-
 .btn-link {
-  color: #8D5CF6;
+  color: $color_4;
   font-weight: bold;
   padding-left: 0;
   padding-right: 0;
@@ -77,7 +80,7 @@ code {
 }
 
 .dark-bg {
-  background-color: #26335D;
+  background-color: $background-color_4;
 }
 
 .separator {
@@ -89,5 +92,8 @@ code {
   gap: 1.1875rem;
 }
 
-.footer-container {
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
 }

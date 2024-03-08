@@ -45,7 +45,7 @@ export class GraphicsComponent implements AfterViewInit {
       this.cameraControl = new CameraController(this.el.nativeElement);
       this.lightsSetup = new LightsSetup(this.sceneHandler.scene);
       this.guiControl = new GUIController(this.sceneHandler.renderer, this.sceneHandler.camera);
-      this.guiControl.gui.hide();
+      //this.guiControl.gui.hide();
       this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.guiControl.objectsFolder, this.sceneHandler.camera);
       this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.guiControl.sceneFolder, this.sceneHandler.camera);
       // Loading assets
@@ -79,7 +79,7 @@ export class GraphicsComponent implements AfterViewInit {
     this.stats.update();
   }
   private routesTargetPosition: { [route: string]: Vector3; } = {
-    Home: new Vector3(0, 4.5, 15),
+    Home: new Vector3(0, 4.5, 14.5),
     About: new Vector3(-7, 0, 6),
     Projects: new Vector3(3, -5, 6)
   };

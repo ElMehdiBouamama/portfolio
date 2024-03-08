@@ -20,7 +20,7 @@ export class SceneHandler {
     this.renderer.setPixelRatio(window.devicePixelRatio);
     // Append the renderer's canvas to the specified HTML element
     this.camera = new PerspectiveCamera(50, element.clientWidth / element.clientHeight, 0.1, 1000);
-    this.camera.position.set(0, 3, 12);
+    this.camera.position.set(0, 0, 50);
     this.camera.rotation.set(-0.2, 0, 0);
     element.appendChild(this.renderer.domElement);
     // Add any additional setup functions as needed

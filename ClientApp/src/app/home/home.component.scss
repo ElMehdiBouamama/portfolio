@@ -18,12 +18,36 @@ span {
   text-decoration: none;
 }
 
-.title {
-  color: $color_2;
-  letter-spacing: .15em;
-  font-family: $font-family_1;
-  text-shadow: -3px -3px 0 #222, 3px -3px 0 #222, -3px 3px 0 #222, 3px 3px 0 #222, 4px 4px 0 #fff, 5px 5px 0 #fff, 6px 6px 0 #fff, 7px 7px 0 #fff;
-  font-size: 4rem;
+.title-container {
+  left: 50%;
+  top: 3%;
+  transform: translate(-50%, 0);
+  text-shadow: 0px 4px 4px #00000030;
+
+  > div {
+    /*gap: 14px;*/
+
+    > h1 {
+      font-size: 96px;
+      line-height: normal;
+      margin-bottom: 0;
+    }
+
+    > h3 {
+      font-size: 32px;
+      letter-spacing: 2px;
+      line-height: normal;
+      margin-bottom: 0;
+      position: relative;
+      top: -16px;
+    }
+  }
+
+  > p {
+    font-size: 16px;
+    color: #196E7B;
+    margin-bottom: 0;
+  }
 }
 
 .contact-container {

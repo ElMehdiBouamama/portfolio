@@ -55,9 +55,9 @@ export class GraphicsComponent implements AfterViewInit {
       this.particlesControl = new ParticlesSetup(this.sceneHandler.scene);
       this.renderControl = new RenderSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.sceneHandler.renderer, this.guiControl.sceneFolder);
       //this.renderControl.addOutlinesToModel(this.sceneHandler.scene, this.sceneHandler.renderer);
-      this.stats = new Stats()
-      this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
-      document.body.appendChild(this.stats.dom)
+      this.stats = new Stats();
+      //this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+      //document.body.appendChild(this.stats.dom)
       this.shouldMoveCamera$
         .pipe(distinctUntilChanged())
         .subscribe(pos => {
@@ -79,7 +79,7 @@ export class GraphicsComponent implements AfterViewInit {
     this.stats.update();
   }
   private routesTargetPosition: { [route: string]: Vector3; } = {
-    Home: new Vector3(0, 3.25, 12),
+    Home: new Vector3(0, 4.5, 15),
     About: new Vector3(-7, 0, 6),
     Projects: new Vector3(3, -5, 6)
   };

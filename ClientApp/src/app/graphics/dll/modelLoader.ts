@@ -21,7 +21,7 @@ export class ModelLoader {
     const gltf = await new GLTFLoader().loadAsync(
       path,
       (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
+        //console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
       }
     );
     gltf.scene.traverse(function (node) {

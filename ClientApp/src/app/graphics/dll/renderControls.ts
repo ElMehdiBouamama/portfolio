@@ -6,8 +6,6 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
 import { BokehPass } from 'three/examples/jsm/postprocessing/BokehPass';
-import { SSAOPass } from 'three/examples/jsm/postprocessing/SSAOPass';
-
 
 export class RenderSetup {
   composer: EffectComposer;

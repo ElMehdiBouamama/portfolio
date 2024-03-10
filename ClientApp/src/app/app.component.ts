@@ -10,7 +10,7 @@ import { transitionService } from './shared/transition.service';
 })
 export class AppComponent {
   private currentRoute = undefined;
-  constructor(private contexts: ChildrenOutletContexts, private router: Router, private transitionService: transitionService) {
+  constructor(private contexts: ChildrenOutletContexts, router: Router, private transitionService: transitionService) {
     window.addEventListener("keydown", (e) => {
       e.stopPropagation();
       if (e.key == "ArrowDown" && transitionService.currentPage != "About") {

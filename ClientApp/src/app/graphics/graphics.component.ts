@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, NgZone, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 import { Vector3 } from 'three';
 import { SceneHandler } from './dll/screenHandler';
 import { CameraController } from './dll/cameraControls';
@@ -13,7 +13,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { transitionService } from '../shared/transition.service';
 import gsap from "gsap";
 import Stats from 'stats.js'
-import { BehaviorSubject, distinctUntilChanged, from, timer } from 'rxjs';
+import { BehaviorSubject, Observable, distinct, distinctUntilChanged, from, skipUntil, skipWhile, timer } from 'rxjs';
 
 @Component({
   selector: 'app-graphics',
@@ -22,6 +22,7 @@ import { BehaviorSubject, distinctUntilChanged, from, timer } from 'rxjs';
 })
 export class GraphicsComponent implements AfterViewInit {
   @ViewChild('graphicsContainer', { static: true }) el: ElementRef;
+  @ViewChild('loadingScreen', { static: true }) loadingEl: ElementRef;
   sceneHandler: SceneHandler;
   cameraControl: CameraController;
   lightsSetup: LightsSetup;
@@ -35,6 +36,7 @@ export class GraphicsComponent implements AfterViewInit {
   mainModel: any;
   stats: Stats;
   shouldMoveCamera$: BehaviorSubject<Vector3> = new BehaviorSubject(new Vector3());
+  isLoaded$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private ngZone: NgZone, private service: transitionService) {
   }
@@ -45,7 +47,7 @@ export class GraphicsComponent implements AfterViewInit {
       this.cameraControl = new CameraController(this.el.nativeElement);
       this.lightsSetup = new LightsSetup(this.sceneHandler.scene);
       this.guiControl = new GUIController(this.sceneHandler.renderer, this.sceneHandler.camera);
-      //this.guiControl.gui.hide();
+      this.guiControl.gui.hide();
       this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.guiControl.objectsFolder, this.sceneHandler.camera);
       this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.guiControl.sceneFolder, this.sceneHandler.camera);
       // Loading assets
@@ -58,12 +60,20 @@ export class GraphicsComponent implements AfterViewInit {
       this.stats = new Stats();
       //this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
       //document.body.appendChild(this.stats.dom)
-      this.shouldMoveCamera$
-        .pipe(distinctUntilChanged())
-        .subscribe(pos => {
-          gsap.to(this.sceneHandler.camera.position, { duration: 1, x: pos.x, y: pos.y, z: pos.z });
-        });
+
+      this.el.nativeElement.appendChild(this.sceneHandler.renderer.domElement);
+      this.loadingEl.nativeElement.classList.add('fade-out');
+      this.sceneHandler.camera.position.set(0, 10, 20);
+      this.sceneHandler.camera.rotation.set(-0.2, 0, 0);
       this.animate(this.renderControl.composer, 0);
+      setTimeout(() => {
+        this.shouldMoveCamera$
+          .pipe(distinctUntilChanged())
+          .subscribe(pos => {
+            gsap.to(this.sceneHandler.camera.position, { duration: 1, x: pos.x, y: pos.y, z: pos.z });
+          });
+          this.loadingEl.nativeElement.classList.add('d-none')
+      }, 250);
     });
   }
 
@@ -72,7 +82,7 @@ export class GraphicsComponent implements AfterViewInit {
     this.cloudsControl.animate();
     this.particlesControl.animate();
     this.mainModel.rotation.y -= 0.001;
-    this.mainModel.position.y += Math.sin(i/50) / 400;
+    this.mainModel.position.y += Math.sin(i / 50) / 400;
     this.shouldMoveCamera$.next(this.targetCameraPosition);
     composer.render();
     i++;

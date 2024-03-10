@@ -25,6 +25,7 @@ span {
   text-shadow: 0px 4px 4px #00000030;
 
   > div {
+    padding: 0px 32px;
     /*gap: 14px;*/
 
     > h1 {
@@ -57,7 +58,6 @@ span {
   background-image: radial-gradient( ellipse 500px 850px at 150px 50px, #2eb7b345 0%, #1d6b95 100% );
   border-radius: 20px;
   padding: 22px 12px;
-  z-index: 1;
   filter: drop-shadow(2px 2px 4px #00000040);
 }
 

@@ -154,22 +154,38 @@ input {
 
 @media only screen and (max-width : 1127px) {
   .contact-container {
+    width: 70%;
+    height: 90%;
+  }
+
+  .top-container {
+    padding: 10px 30px !important;
+    gap: 16px;
+  }
+
+  .bottom-container {
+    gap: 18px;
+  }
+}
+
+@media only screen and (max-width : 667px) {
+  .contact-container {
     width: 80%;
     height: 90%;
   }
 }
 
-@media only screen and (max-width : 705px) {
+@media only screen and (max-width : 667px) {
   .top-container {
     padding: 10px 30px !important;
     gap: 6px;
   }
 
   .home-container {
-      display: none !important;
+    display: none !important;
   }
 
-  .bottom-container{
-      gap: 18px;
+  .bottom-container {
+    gap: 18px;
   }
 }

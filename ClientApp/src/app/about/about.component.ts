@@ -17,13 +17,13 @@ export class AboutComponent {
   })
 
   about: { picture: string, name: string, role: string, bio: string, cta: string };
-  constructor(private emailService: EmailService, private _snackBar: MatSnackBar) {
+  constructor(private emailService: EmailService) {
     this.about = content.about;
   }
 
   onSubmit() {
     if (this.emailForm.valid) {
-      this.emailService.sendEmail(this.emailForm.controls.name.value ?? "Hacker", this.emailForm.controls.email.value ?? "Hacker@gmail.com", this.emailForm.controls.message.value ?? "Hacker", this._snackBar);
+      this.emailService.sendEmail(this.emailForm.controls.name.value ?? "Hacker", this.emailForm.controls.email.value ?? "Hacker@gmail.com", this.emailForm.controls.message.value ?? "Hacker");
     }
   }
 }

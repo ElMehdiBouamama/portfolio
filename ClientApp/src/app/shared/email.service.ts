@@ -8,11 +8,11 @@ import {
   providedIn: 'root'
 })
 export class EmailService {
-  constructor() {
+  constructor(private _snackBar: MatSnackBar) {
     emailjs.init('user_rhcIlwwRnbiR3iBL7r8nH');
   }
 
-  sendEmail(name: string, email: string, message: string, _snackBar: MatSnackBar) {
+  sendEmail(name: string, email: string, message: string) {
     emailjs.send("portfolio", "template_ppiuxan", {
       from_name: name,
       message: message,
@@ -20,14 +20,14 @@ export class EmailService {
       publicKey: 'user_rhcIlwwRnbiR3iBL7r8nH'
     }).then(
       () => {
-        _snackBar.open('Email Sent!!', '', {
+        this._snackBar.open('Email Sent!!', '', {
           horizontalPosition: 'end',
           verticalPosition: 'top',
           duration: 1000
         });
       },
       (error) => {
-        _snackBar.open('An Error occured!!', '', {
+        this._snackBar.open('An Error occured!!', '', {
           horizontalPosition: 'end',
           verticalPosition: 'top',
           duration: 1000

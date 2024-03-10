@@ -9,20 +9,23 @@
   </div>
   <div class="d-flex flex-column justify-content-between align-items-center bottom-container">
     <h1>{{about.cta}}</h1>
-    <form class="d-flex flex-column justify-content-between align-items-center">
+    <form [formGroup]="emailForm" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-between align-items-center">
       <mat-form-field>
         <mat-label>Name</mat-label>
-        <input class="name" type="text" placeholder="Name" matInput />
+        <input formControlName="name" class="name" type="text" placeholder="Name" matInput />
+        <mat-error *ngIf="emailForm.controls.name.errors">Please enter your full name</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>Phone</mat-label>
-        <input class="tel" type="tel" placeholder="Phone" matInput />
+        <mat-label>Email</mat-label>
+        <input formControlName="email" class="tel" type="email" placeholder="Email" matInput />
+        <mat-error *ngIf="emailForm.controls.email.errors">Please enter a valid email</mat-error>
       </mat-form-field>
       <mat-form-field class="subject">
         <mat-label>Subject</mat-label>
-        <textarea matInput placeholder="What do you wanna discuss..."></textarea>
+        <textarea formControlName="message" matInput placeholder="What do you wanna discuss..."></textarea>
+        <mat-error *ngIf="emailForm.controls.message.errors">Please enter a message</mat-error>
       </mat-form-field>
-      <button mat-button>
+      <button type="submit" [disabled]="!emailForm.valid" mat-button>
         Send
         <mat-icon>send</mat-icon>
       </button>

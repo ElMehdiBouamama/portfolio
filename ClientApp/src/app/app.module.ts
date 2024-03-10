@@ -1,6 +1,6 @@
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { CdkListboxModule } from '@angular/cdk/listbox';
@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ProjectComponent } from './shared/project/project.component';
 import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,8 @@ import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component'
     MatTabsModule,
     MatButtonModule,
     MatInputModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
     MatExpansionModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([

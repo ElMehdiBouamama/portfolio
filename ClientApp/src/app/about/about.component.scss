@@ -5,9 +5,17 @@ $color_4: white;
 $font-family_1: 'Inder', sans-serif;
 $background-color_1: #A7C8D580;
 $background-color_2: #29da52;
-
 @import "https://fonts.cdnfonts.com/css/inder";
-/* typical tablet screen resolution */
+
+[disabled=true] {
+  filter: grayscale(1);
+}
+
+mat-error {
+  position: relative;
+  top: -4px;
+}
+
 .contact-container {
   position: fixed;
   top: 50%;
@@ -142,6 +150,12 @@ input {
     > span {
       font-size: 22px;
     }
+  }
+}
+
+::ng-deep {
+  .mat-mdc-form-field-flex, .mat-mdc-form-field-infix, .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control {
+    height: 100% !important;
   }
 }
 

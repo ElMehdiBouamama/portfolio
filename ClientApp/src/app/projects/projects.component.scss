@@ -66,3 +66,9 @@ $background-color_1: #A7C8D580;
     overflow: hidden !important;
   }
 }
+
+@media only screen and (max-width : 705px) {
+  .home-container {
+    display: none !important;
+  }
+}

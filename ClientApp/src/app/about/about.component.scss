@@ -162,5 +162,14 @@ input {
 @media only screen and (max-width : 705px) {
   .top-container {
     padding: 10px 30px !important;
+    gap: 6px;
+  }
+
+  .home-container {
+      display: none !important;
+  }
+
+  .bottom-container{
+      gap: 18px;
   }
 }

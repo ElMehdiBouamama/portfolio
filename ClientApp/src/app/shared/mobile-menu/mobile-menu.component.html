@@ -1,0 +1,17 @@
+<button class="open-main-nav" (click)="flipToogles($event)" #burger>
+  <span  class="burger"></span>
+  <span class="burger-text">Menu</span>
+</button>
+<nav class="main-nav" #mainNav>
+  <ul>
+    <li>
+      <a [routerLink]="['']" (click)="flipToogles($event)">Home</a>
+    </li>
+    <li>
+      <a [routerLink]="['/projects']" (click)="flipToogles($event)">Projects</a>
+    </li>
+    <li>
+      <a [routerLink]="['/about']" (click)="flipToogles($event)">Contact</a>
+    </li>
+  </ul>
+</nav>

@@ -145,3 +145,10 @@ mat-icon {
     background: #549dbe60;
   }
 }
+
+@media only screen and (max-width : 1200px) {
+  .project-galery {
+    display: none !important;
+  }
+}
+

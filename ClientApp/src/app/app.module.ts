@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ProjectComponent } from './shared/project/project.component';
+import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProjectComponent } from './shared/project/project.component';
     ProjectsComponent,
     GraphicsComponent,
     AboutComponent,
-    ProjectComponent
+    ProjectComponent,
+    MobileMenuComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

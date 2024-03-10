@@ -36,7 +36,6 @@ export class GraphicsComponent implements AfterViewInit {
   mainModel: any;
   stats: Stats;
   shouldMoveCamera$: BehaviorSubject<Vector3> = new BehaviorSubject(new Vector3());
-  isLoaded$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(private ngZone: NgZone, private service: transitionService) {
   }
@@ -66,13 +65,14 @@ export class GraphicsComponent implements AfterViewInit {
       this.sceneHandler.camera.position.set(0, 10, 20);
       this.sceneHandler.camera.rotation.set(-0.2, 0, 0);
       this.animate(this.renderControl.composer, 0);
+      this.service.isLoaded$.next(true);
       setTimeout(() => {
+        this.loadingEl.nativeElement.classList.add('d-none')
         this.shouldMoveCamera$
           .pipe(distinctUntilChanged())
           .subscribe(pos => {
             gsap.to(this.sceneHandler.camera.position, { duration: 1, x: pos.x, y: pos.y, z: pos.z });
           });
-          this.loadingEl.nativeElement.classList.add('d-none')
       }, 250);
     });
   }

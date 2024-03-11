@@ -1,7 +1,6 @@
-import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
+import { Camera, Color, Group, Mesh, PMREMGenerator, Scene, Texture } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
-import { Mesh, Color, Scene, Texture, Group, PMREMGenerator, Camera } from 'three';
 
 export class ModelLoader {
   scene: Scene;
@@ -14,14 +13,14 @@ export class ModelLoader {
     this.camera = camera;
   }
 
-  async loadModel(path: string, options: { addControl?: boolean, visible?: boolean, control?: TransformControls } = { addControl: false, visible: true }) {
+  async loadModel(path: string, options: { visible?: boolean } = { visible: true }) {
     const gltf = await new GLTFLoader().loadAsync(
       path,
       (xhr) => { }
     );
     gltf.scene.traverse(function (node) {
       if (node instanceof Mesh) {
-        if (options.addControl && options.control) options.control.attach(node);
+        //if (options.addControl && options.control) options.control.attach(node);
         if (!options.visible) node.visible = false;
         if (node.name.toLowerCase() == "cube001") {
           node.material.color = new Color(0.02, 0.285, 0.04);

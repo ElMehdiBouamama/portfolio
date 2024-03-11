@@ -1,31 +1,35 @@
-/* typical phone screen resolution */
-button, nav {
-  display: none;
-  filter: drop-shadow(0px 2px 4px #00000080);
-}
-
+button,
 nav {
-  text-shadow: 0px 2px 4px #00000080;
+  display: none;
 }
 
-@media only screen and (max-width : 667px) {
-  button, nav {
+@media only screen and (max-width: 667px) {
+  .main-nav,
+  .open-main-nav {
+    position: absolute;
+    background: 0 0;
+  }
+
+  .burger-text,
+  .main-nav,
+  .notice {
+    text-align: center;
+  }
+
+  button,
+  nav {
     display: block;
   }
 
-  /* Main menu positionning */
   .main-nav {
-    position: absolute;
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
-    text-align: center;
-    background: transparent;
     opacity: 0;
     z-index: -1;
     visibility: hidden;
-    transition: all .375s;
+    transition: 0.375s;
   }
 
   .main-nav.is-open {
@@ -34,7 +38,6 @@ nav {
     visibility: visible;
   }
 
-  /* Yellow band effect */
   .main-nav::before {
     content: '';
     width: 100vw;
@@ -44,21 +47,20 @@ nav {
     bottom: 0;
     left: 0;
     right: -15px;
-    background: radial-gradient(ellipse 500px 850px at 150px 50px, rgb(46 183 179) 0%, #1d6b95 100%);
+    background: radial-gradient(ellipse 500px 850px at 150px 50px, rgb(46 183 179) 0, #1d6b95 100%);
     transform-origin: 0 0;
     transform: skew(-14deg) translateX(-120%);
-    transition: all .275s .1s;
+    transition: 0.275s 0.1s;
   }
 
   .main-nav.is-open::before {
     transform: skew(-14deg) translateX(0);
   }
 
-  /* Skewing effect on menu links */
   .main-nav ul {
     display: inline-flex;
     flex-direction: column;
-    height: 93%; /* Should be 100%, but we have a notice message :D */
+    height: 93%;
     align-items: flex-end;
     justify-content: center;
     transform: translateX(-18%) skew(-16deg);
@@ -66,15 +68,9 @@ nav {
 
   .main-nav li {
     display: block;
-    margin: .5rem 0;
+    margin: 0.5rem 0;
     text-align: right;
     transform: skew(16deg);
-  }
-
-  /* Apparition effect on links */
-  .main-nav a {
-    opacity: 0;
-    transform: translateY(-10px);
   }
 
   .main-nav.is-open a {
@@ -82,68 +78,65 @@ nav {
     transform: translateY(0);
   }
 
-  .main-nav li:nth-child(1) a {
-    transition: all 275ms 175ms
+  .main-nav li:first-child a {
+    transition: 275ms 175ms;
   }
 
   .main-nav li:nth-child(2) a {
-    transition: all 275ms 225ms
+    transition: 275ms 225ms;
   }
 
   .main-nav li:nth-child(3) a {
-    transition: all 275ms 275ms
+    transition: 275ms 275ms;
   }
 
   .main-nav li:nth-child(4) a {
-    transition: all 275ms 325ms
+    transition: 275ms 325ms;
   }
 
   .main-nav li:nth-child(5) a {
-    transition: all 275ms 375ms
+    transition: 275ms 375ms;
   }
 
-
-  /* Decoration */
-  .main-nav ul,
-  .main-nav li {
+  .main-nav li,
+  .main-nav ul {
     list-style: none;
     padding: 0;
   }
 
   .main-nav a {
+    opacity: 0;
+    transform: translateY(-10px);
     display: block;
     padding: 12px 0;
-    color: #FFF;
+    color: #fff;
     font-size: 1.4em;
     text-decoration: none;
-    /*font-weight: bold;*/
+    text-shadow: 0px 4px 4px #00000080;
   }
 
-  /* Burger Style: @see: https://codepen.io/CreativeJuiz/full/oMZNXy */
   .open-main-nav {
-    position: absolute;
     top: 15px;
     padding-top: 20px;
     right: 15px;
     z-index: 1000;
-    background: none;
-    border: 0;
-    cursor: pointer;
+    border: none;
+    filter: drop-shadow(0px 4px 4px #00000040);
   }
 
-  .open-main-nav:focus {
-    outline: none;
+  .burger,
+  .device {
+    position: relative;
+    background: #fff;
   }
 
   .burger {
-    position: relative;
     display: block;
     width: 28px;
     height: 4px;
     margin: 0 auto;
-    background: #FFF;
     transform: skew(5deg);
-    transition: all .275s;
+    transition: 0.275s;
   }
 
   .burger:after,
@@ -151,8 +144,7 @@ nav {
     content: '';
     display: block;
     height: 100%;
-    background: #FFF;
-    transition: all .275s;
+    background: #fff;
   }
 
   .burger:after {
@@ -163,13 +155,12 @@ nav {
     transform: translateY(-16px) skew(-10deg);
   }
 
-  /* Toggle State part */
   .is-open .burger {
     transform: skew(5deg) translateY(-8px) rotate(-45deg);
   }
 
   .is-open .burger:before {
-    transform: translateY(0px) skew(-10deg) rotate(75deg);
+    transform: translateY(0) skew(-10deg) rotate(75deg);
   }
 
   .is-open .burger:after {
@@ -177,64 +168,13 @@ nav {
     opacity: 0;
   }
 
-  /* MENU Text part */
-
   .burger-text {
     display: block;
-    font-size: .675rem;
-    letter-spacing: .05em;
-    margin-top: .5em;
+    font-size: 0.675rem;
+    letter-spacing: 0.05em;
+    margin-top: 0.5em;
     text-transform: uppercase;
     font-weight: 500;
-    text-align: center;
-    color: #FFF;
-  }
-
-  .device {
-    position: relative;
-    width: 345px;
-    height: 600px;
-    background: #FFF;
-    border: 1px solid #EEE;
-    border-radius: 3px;
-    box-shadow: 0 0 0 10px rgba(0,0,0,.1);
-  }
-
-  html {
-    height: 100%;
-  }
-
-  body {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-
-  /* Notice */
-  .notice {
-    position: absolute;
-    bottom: -15px;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    background: #F2F2F2;
-    color: #FFF;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.5;
-    z-index: 100;
-    text-align: center;
-  }
-
-  .notice strong {
-    font-weight: 700;
-  }
-
-  .notice a {
-    padding: 2px 3px;
-    background: #FEDC2A;
-    text-decoration: none;
+    color: #fff;
   }
 }

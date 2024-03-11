@@ -29,11 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\app\graphics\dll\cameraControls.ts" />
-    <None Remove="ClientApp\src\app\graphics\dll\CharacterControls.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\cloudSetup.ts" />
-    <None Remove="ClientApp\src\app\graphics\dll\guiControls.ts" />
-    <None Remove="ClientApp\src\app\graphics\dll\inputHandler.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\lightSetup.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\modelLoader.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\particlesSetup.ts" />
@@ -50,10 +46,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\cameraControls.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\characterControls.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\guiControls.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\inputHandler.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\cloudSetup.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

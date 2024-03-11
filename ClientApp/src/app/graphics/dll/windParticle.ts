@@ -1,5 +1,5 @@
+import { BufferGeometry, CatmullRomCurve3, Color, InstancedMesh, Scene, Vector3 } from 'three';
 import { MeshLine, MeshLineMaterial } from 'three.meshline';
-import { Color, Vector3, Scene, BufferGeometry, CatmullRomCurve3, Mesh, InstancedMesh,  } from 'three';
 export class WindParticle {
   lineMesh: any;
   lineMeshParams = {
@@ -35,16 +35,16 @@ export class WindParticle {
     const linePoints = new BufferGeometry().setFromPoints(new CatmullRomCurve3(this.points).getPoints(50));
     const line = new MeshLine();
     line.setGeometry(linePoints);
-    const geometry = line.geometry;
 
     // Build the material with good parameters to animate it.
     const material = new MeshLineMaterial(this.lineMeshParams);
 
     // Build the Mesh
     const depth = Math.random() * -15;
-    this.lineMesh = new InstancedMesh(geometry, material, 1);
+    this.lineMesh = new InstancedMesh(line.geometry, material, 1);
     this.lineMesh.position.x = -20 - (depth * 0);
-    this.lineMesh.position.y = Math.random() * 15 - 10;
+    this.lineMesh.position.y =
+      Math.random() * 15 - 10;
     this.lineMesh.position.z = depth;
     //const gui = new GUI();
     ////gui.add(this.lineMesh.position, 'x');

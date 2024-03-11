@@ -1,4 +1,4 @@
-import { Scene, WebGLRenderer, PerspectiveCamera, Color, SRGBColorSpace , ACESFilmicToneMapping} from 'three';
+import { ACESFilmicToneMapping, Color, PerspectiveCamera, SRGBColorSpace, Scene, WebGLRenderer } from 'three';
 
 export class SceneHandler {
   scene: Scene;

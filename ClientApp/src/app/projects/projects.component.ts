@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import data from '../shared/content.json';
 
@@ -9,7 +9,6 @@ import data from '../shared/content.json';
 })
 export class ProjectsComponent {
   img: string = "../../../assets/hero-figure.png";
-  //projects = ['Spotbills', 'Augurisk', 'New Wave Telecom and Technologies', 'DSI Services et Conseils'];
   projects: typeof data.projects;
   projectCtrl = new FormControl(['ExLibris']);
 

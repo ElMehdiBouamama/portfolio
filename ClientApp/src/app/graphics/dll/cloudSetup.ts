@@ -1,5 +1,5 @@
-import * as BufferGeometryUtils from 'three/examples/jsm/utils/BufferGeometryUtils.js';
-import { Camera, Mesh, Scene, Fog, TextureLoader, ShaderMaterial, PlaneGeometry, Object3D, Color, Matrix4, InstancedMesh, Vector3, Quaternion, InstancedBufferGeometry } from 'three';
+import { Camera, Color, Fog, InstancedMesh, Matrix4, PlaneGeometry, Quaternion, Scene, ShaderMaterial, TextureLoader, Vector3 } from 'three';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 export class CloudsSetup {
 
@@ -90,7 +90,7 @@ export class CloudsSetup {
       geometries.push(clonedPlaneGeo);
     }
 
-    const planeGeos = BufferGeometryUtils.mergeGeometries(geometries);
+    const planeGeos = mergeGeometries(geometries);
     this.clouds = new InstancedMesh(planeGeos, material, 1);
     this.clouds.name = "clouds";
 

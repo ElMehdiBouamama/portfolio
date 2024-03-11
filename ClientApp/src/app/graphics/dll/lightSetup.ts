@@ -1,4 +1,4 @@
-import { DirectionalLight, DirectionalLightHelper, Color } from 'three'
+import { Color, DirectionalLight, DirectionalLightHelper } from 'three';
 
 export class LightsSetup {
   constructor(scene: any) {

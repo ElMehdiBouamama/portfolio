@@ -1,5 +1,5 @@
-import { WindParticle } from './windParticle';
 import { Scene, Vector3 } from 'three';
+import { WindParticle } from './windParticle';
 
 export class ParticlesSetup {
   particles: WindParticle[] = [];

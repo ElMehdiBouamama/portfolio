@@ -2,10 +2,9 @@ $color_1: #B9F5FF;
 $color_2: #259fb4;
 $color_3: black;
 $color_4: white;
-$font-family_1: 'Inder', sans-serif;
+$font-family_1: 'Inder', Montserrat, sans-serif;
 $background-color_1: #A7C8D580;
 $background-color_2: #29da52;
-@import "https://fonts.cdnfonts.com/css/inder";
 
 [disabled=true] {
   filter: grayscale(1);

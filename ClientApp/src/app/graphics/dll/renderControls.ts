@@ -1,18 +1,17 @@
-import { GUI } from 'dat.gui';
-import { WebGLRenderer, Vector2, Color, Raycaster, Object3D, Camera, Scene } from 'three';
+import { Camera, Color, Object3D, Raycaster, Scene, Vector2, WebGLRenderer } from 'three';
+import { BokehPass } from 'three/examples/jsm/postprocessing/BokehPass';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
+import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
-import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
-import { BokehPass } from 'three/examples/jsm/postprocessing/BokehPass';
 
 export class RenderSetup {
   composer: EffectComposer;
   camera: Camera;
   scene: Scene;
 
-  constructor(scene: Scene, camera: Camera, renderer: WebGLRenderer, gui: GUI) {
+  constructor(scene: Scene, camera: Camera, renderer: WebGLRenderer) {
     this.camera = camera;
     this.scene = scene;
 
@@ -42,36 +41,6 @@ export class RenderSetup {
 
     const outputPass = new OutputPass();
     this.composer.addPass(outputPass);
-
-    //const ssaoFolder = gui.addFolder('SSAO');
-    //ssaoFolder.add(ssaoPass, 'output', {
-    //  'Default': SSAOPass.OUTPUT.Default,
-    //  'SSAO Only': SSAOPass.OUTPUT.SSAO,
-    //  'SSAO Only + Blur': SSAOPass.OUTPUT.Blur,
-    //  'Depth': SSAOPass.OUTPUT.Depth,
-    //  'Normal': SSAOPass.OUTPUT.Normal
-    //}).onChange(function (value) {
-    //  ssaoPass.output = value;
-    //});
-    //ssaoFolder.add(ssaoPass, 'kernelRadius').min(0).max(0.3);
-    //ssaoFolder.add(ssaoPass, 'minDistance').min(0.001).max(0.02);
-    //ssaoFolder.add(ssaoPass, 'maxDistance').min(0.01).max(0.3);
-    //ssaoFolder.add(ssaoPass, 'enabled');
-
-    const bloomFolder = gui.addFolder('bloom');
-    bloomFolder.add(bloomPass, 'threshold', 0, 1, 0.01);
-    bloomFolder.add(bloomPass, 'strength', 0, 1, 0.01);
-    bloomFolder.add(bloomPass, 'radius', 0, 1, 0.01);
-    bloomFolder.add(bloomPass, 'enabled').onChange((v: boolean) => {
-      const pass = this.composer.passes.find(x => x == bloomPass);
-      if (pass) pass.enabled = v;
-    });
-
-    const bokehFolder = gui.addFolder('bokeh');
-    bokehFolder.add((bokehPass.uniforms as any).focus, 'value', 0, 1000, 0.1);
-    bokehFolder.add((bokehPass.uniforms as any).aperture, 'value', 0, 0.0001, 0.00001);
-    bokehFolder.add((bokehPass.uniforms as any).maxblur, 'value', 0, 1, 0.01);
-    bokehFolder.add(bokehPass, 'enabled');
   }
 
   addOutlinesToModel(scene: Scene, renderer: WebGLRenderer) {
@@ -115,6 +84,5 @@ export class RenderSetup {
         }
       }
     }
-
   }
 }

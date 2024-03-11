@@ -1,4 +1,3 @@
-import { GUI } from 'dat.gui';
 import * as BufferGeometryUtils from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 import { Camera, Mesh, Scene, Fog, TextureLoader, ShaderMaterial, PlaneGeometry, Object3D, Color, Matrix4, InstancedMesh, Vector3, Quaternion, InstancedBufferGeometry } from 'three';
 
@@ -11,7 +10,7 @@ export class CloudsSetup {
   cloudSpacing = 700;
   numberClouds = 600;
 
-  constructor(scene: Scene, gui: GUI, camera: Camera) {
+  constructor(scene: Scene, camera: Camera) {
     this.camera = camera;
     const vertexShader = /* glsl */`
 			    varying vec2 vUv;
@@ -120,10 +119,6 @@ export class CloudsSetup {
       material.uniforms.fogNear.value = parameters.fogNear;
       material.uniforms.fogFar.value = parameters.fogFar;
     }
-    const cloudFolder = gui.addFolder("clouds");
-    cloudFolder.addColor(parameters, 'fogColor').onChange(update);
-    cloudFolder.add(parameters, 'fogNear', -100, 1500, 1).onChange(update);
-    cloudFolder.add(parameters, 'fogFar', -100, 1500, 1).onChange(update);
   }
 
   animate() {

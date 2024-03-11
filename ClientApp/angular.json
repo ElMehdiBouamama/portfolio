@@ -30,7 +30,12 @@
               "oidc-client"
             ],
             "assets": [
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "ignore": [ "**/blend/**", "**/fonts/*", "**/audio/*" ],
+                "output": "/assets"
+              }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",

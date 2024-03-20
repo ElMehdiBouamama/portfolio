@@ -75,7 +75,8 @@ export class GraphicsComponent implements AfterViewInit {
   private routesTargetPosition: { [route: string]: Vector3; } = {
     Home: new Vector3(0, 4.5, 14.5),
     About: new Vector3(-7, 0, 6),
-    Projects: new Vector3(3, -5, 6)
+    Projects: new Vector3(3, -5, 6),
+    Techs: new Vector3(7, 0, 6)
   };
   get targetCameraPosition() {
     return this.routesTargetPosition[this.service.currentPage];

@@ -21,6 +21,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ProjectComponent } from './shared/project/project.component';
 import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TechsComponent } from './techs/techs.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     GraphicsComponent,
     AboutComponent,
     ProjectComponent,
-    MobileMenuComponent
+    MobileMenuComponent,
+    TechsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -51,6 +53,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full', data: { animation: 'Home' } },
       { path: 'projects', component: ProjectsComponent, data: { animation: 'Projects' } },
+      { path: 'techs', component: TechsComponent, data: { animation: 'Techs' }, },
       { path: 'about', component: AboutComponent, data: { animation: 'About' }, }
     ]),
     BrowserAnimationsModule

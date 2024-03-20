@@ -13,13 +13,21 @@ export class AppComponent {
   constructor(private contexts: ChildrenOutletContexts, router: Router, private transitionService: transitionService) {
     window.addEventListener("keydown", (e) => {
       e.stopPropagation();
-      if (e.key == "ArrowDown" && transitionService.currentPage != "About") {
+      if (e.key == "ArrowDown" && transitionService.currentPage == "Home") {
         router.navigate(["/projects"]);
-      } else if (e.key == "ArrowLeft" && transitionService.currentPage != "Projects") {
-        router.navigate(["/about"]);
-      } else if (
-        (e.key == "ArrowUp" && transitionService.currentPage != "About") ||
-        (e.key == "ArrowRight" && transitionService.currentPage != "Projects")) {
+      } else if (e.key == "ArrowLeft") {
+        if (transitionService.currentPage == 'Techs') {
+          router.navigate(["/"]);
+        } else {
+          router.navigate(["/about"]);
+        }
+      } else if (e.key == "ArrowRight") {
+        if (transitionService.currentPage == "About") {
+          router.navigate(["/"]);
+        } else {
+          router.navigate(["/techs"]);
+        }
+      } else if (e.key == "ArrowUp" && transitionService.currentPage == "Projects") {
         router.navigate(["/"]);
       }
     });

@@ -239,3 +239,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 /ClientApp/package-lock.json
+/ClientApp/docs
+/ClientApp/.github/workflows

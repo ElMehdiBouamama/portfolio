@@ -241,3 +241,4 @@ _Pvt_Extensions
 /ClientApp/package-lock.json
 /ClientApp/docs
 /ClientApp/.github/workflows
+/ClientApp/src/assets/imgs/picture.png

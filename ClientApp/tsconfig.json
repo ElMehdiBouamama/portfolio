@@ -1,5 +1,5 @@
 {
-  "compileOnSave": false,
+  "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -16,13 +16,10 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2022",
-    "module": "es2020",
-    "types": [ "node" ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "target": "ESNext",
+    "module": "ESNext",
+    "types": [ "node", "jest" ],
+    "lib": [ "ESNext", "DOM" ],
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

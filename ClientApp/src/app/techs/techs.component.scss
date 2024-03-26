@@ -18,6 +18,27 @@ $background-color_1: #A7C8D580;
   }
 }
 
+.technologies-container {
+  padding: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+
+  > span {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 16px 8px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
 .content-bg {
   position: absolute;
   width: 100%;

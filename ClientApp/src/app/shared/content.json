@@ -50,11 +50,11 @@
         "Utilized various design patterns in the implementation of the rubber stamp manipulation tool, enhancing functionality and maintainability.",
         "Implemented CI/CD pipelines, automating the build and deployment process and increasing development workflow efficiency."
       ],
-      "mainImg": "/assets/imgs/projects/exlibris.png",
+      "mainImg": "/assets/imgs/projects/exlibris.webp",
       "sideImgs": [
-        "/assets/imgs/projects/exlibris.png",
-        "/assets/imgs/projects/exlibris1.png",
-        "/assets/imgs/projects/exlibris2.png"
+        "/assets/imgs/projects/exlibris.webp",
+        "/assets/imgs/projects/exlibris1.webp",
+        "/assets/imgs/projects/exlibris2.webp"
       ]
     },
     {
@@ -107,11 +107,11 @@
         "Researched and documented advancements in voice technologies, contributing to the development of innovative features.",
         "Assisted in the recruitment process, ensuring the team had the necessary skills to deliver high-quality results."
       ],
-      "mainImg": "/assets/imgs/projects/spotbills1.png",
+      "mainImg": "/assets/imgs/projects/spotbills1.webp",
       "sideImgs": [
-        "/assets/imgs/projects/spotbills.png",
-        "/assets/imgs/projects/spotbills1.png",
-        "/assets/imgs/projects/spotbills2.png"
+        "/assets/imgs/projects/spotbills.webp",
+        "/assets/imgs/projects/spotbills1.webp",
+        "/assets/imgs/projects/spotbills2.webp"
       ]
     },
     {
@@ -153,11 +153,11 @@
         "Integrated a wide range of social and environmental factors into the software, providing users with a comprehensive and accurate analysis of property risks.",
         "Designed and implemented a user-friendly interface that made complex data and analysis accessible to users, improving decision-making processes."
       ],
-      "mainImg": "/assets/imgs/projects/augurisk.png",
+      "mainImg": "/assets/imgs/projects/augurisk.webp",
       "sideImgs": [
-        "/assets/imgs/projects/augurisk.png",
-        "/assets/imgs/projects/augurisk2.png",
-        "/assets/imgs/projects/augurisk1.png"
+        "/assets/imgs/projects/augurisk.webp",
+        "/assets/imgs/projects/augurisk2.webp",
+        "/assets/imgs/projects/augurisk1.webp"
       ]
     },
     {
@@ -192,11 +192,11 @@
         "Implemented front-end authentication without API calls, ensuring secure access to the application.",
         "Developed a model to predict fuel consumption prices, providing valuable insights for pricing strategies and cost management."
       ],
-      "mainImg": "/assets/imgs/projects/dsi2.png",
+      "mainImg": "/assets/imgs/projects/dsi2.webp",
       "sideImgs": [
-        "/assets/imgs/projects/dsi.png",
-        "/assets/imgs/projects/dsi1.png",
-        "/assets/imgs/projects/dsi2.png"
+        "/assets/imgs/projects/dsi.webp",
+        "/assets/imgs/projects/dsi1.webp",
+        "/assets/imgs/projects/dsi2.webp"
       ]
     },
     {
@@ -235,11 +235,11 @@
         "Created a large and diverse dataset for training the algorithm, ensuring its effectiveness in various conditions.",
         "Successfully implemented the algorithm as a real-time tool on a HoloLens device using the Unity game engine."
       ],
-      "mainImg": "/assets/imgs/projects/nwtt1.png",
+      "mainImg": "/assets/imgs/projects/nwtt1.webp",
       "sideImgs": [
-        "/assets/imgs/projects/nwtt.png",
-        "/assets/imgs/projects/nwtt1.png",
-        "/assets/imgs/projects/nwtt2.png"
+        "/assets/imgs/projects/nwtt.webp",
+        "/assets/imgs/projects/nwtt1.webp",
+        "/assets/imgs/projects/nwtt2.webp"
       ]
     },
     {
@@ -283,11 +283,11 @@
         "Utilized Google Cloud Platform (GCP) for computing and running the code efficiently.",
         "Implemented a training dashboard with TensorBoard to monitor the training process"
       ],
-      "mainImg": "/assets/imgs/projects/tweet.png",
+      "mainImg": "/assets/imgs/projects/tweet.webp",
       "sideImgs": [
-        "/assets/imgs/projects/tweet.png",
-        "/assets/imgs/projects/tweet1.png",
-        "/assets/imgs/projects/tweet2.png"
+        "/assets/imgs/projects/tweet.webp",
+        "/assets/imgs/projects/tweet1.webp",
+        "/assets/imgs/projects/tweet2.webp"
       ]
     }
   ],
@@ -295,7 +295,7 @@
     "bio": "Drawing from a diverse skill set in mathematics, development, data science, and management, I am fueled by curiosity and dedication. Passionate about contributing to sustainable initiatives, I delve deeply into every endeavor.",
     "cta": "Let's collaborate!",
     "name": "El Mehdi Bouâmama",
-    "picture": "/assets/imgs/picture.png",
+    "picture": "/assets/imgs/picture.webp",
     "role": "Data Scientist, Developer"
   }
 }

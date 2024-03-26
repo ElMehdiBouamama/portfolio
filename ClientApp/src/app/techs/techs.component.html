@@ -7,12 +7,11 @@
 <mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start" class="content-container">
   <mat-tab *ngFor="let category of categories" [label]="category.name">
     <div class="content-bg"></div>
-    <div class=""></div>
-    <!--<app-project [title]="project.title"
-                 [overview]="project.overview"
-                 [responsibilities]="project.responsibilities"
-                 [achievements]="project.achievements"
-                 [mainImg]="project.mainImg"
-                 [sideImgs]="project.sideImgs"></app-project>-->
+    <div class="technologies-container">
+      <span *ngFor="let technology of category.technologies" (click)="openTechPage(technology)">
+        <img [src]="technology.img" width="128"/>
+        {{technology.name}}
+      </span>
+    </div>
   </mat-tab>
 </mat-tab-group>

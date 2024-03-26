@@ -24,6 +24,10 @@ $background-color_4: #26335D;
   --mdc-tab-indicator-active-indicator-color: white;
 }
 
+.mat-mdc-tab-header-pagination-chevron {
+    border-color: white;
+}
+
 html {
   font-size: 14px;
 }

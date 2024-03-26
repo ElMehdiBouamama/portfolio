@@ -82,14 +82,21 @@ $background-color_1: #A7C8D580;
   .mdc-tab__text-label {
     color: $color_1 !important;
   }
+}
 
-  .mat-mdc-tab-body-content, .mat-mdc-tab-body.mat-mdc-tab-body-active {
-    overflow: hidden !important;
+@media only screen and (max-width : 667px) {
+  .home-container {
+    display: none !important;
+  }
+
+  .content-container {
+    width: 90% !important;
   }
 }
 
-@media only screen and (max-width : 705px) {
-  .home-container {
-    display: none !important;
+@media only screen and (max-width : 1280px) {
+  .content-container {
+    width: 60%;
+    height: 75%;
   }
 }

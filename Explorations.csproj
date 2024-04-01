@@ -32,11 +32,10 @@
     <None Remove="ClientApp\src\app\graphics\dll\cloudSetup.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\lightSetup.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\modelLoader.ts" />
-    <None Remove="ClientApp\src\app\graphics\dll\particlesSetup.ts" />
+    <None Remove="ClientApp\src\app\graphics\dll\particlesSystem.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\renderControls.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\screenHandler.ts" />
     <None Remove="ClientApp\src\app\graphics\dll\typings.d.ts" />
-    <None Remove="ClientApp\src\app\graphics\dll\windParticle.ts" />
     <None Remove="ClientApp\src\app\route-animation.ts" />
     <None Remove="ClientApp\src\assets\audio\select.wav" />
   </ItemGroup>
@@ -49,7 +48,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\cloudSetup.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\particlesSetup.ts">
+    <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\particlesSystem.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\lightSetup.ts" />
@@ -57,7 +56,6 @@
     <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\renderControls.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\screenHandler.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\typings.d.ts" />
-    <TypeScriptCompile Include="ClientApp\src\app\graphics\dll\windParticle.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\shared\route-animation.ts" />
   </ItemGroup>
 

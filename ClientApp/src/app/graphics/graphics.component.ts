@@ -7,9 +7,9 @@ import { transitionService } from '../shared/transition.service';
 import { CloudsSetup } from './dll/cloudSetup';
 import { LightsSetup } from './dll/lightSetup';
 import { ModelLoader } from './dll/modelLoader';
-import { ParticlesSetup } from './dll/particlesSetup';
 import { RenderSetup } from './dll/renderControls';
 import { SceneHandler } from './dll/screenHandler';
+import { ParticlesSystem } from './dll/particlesSystem';
 
 @Component({
   selector: 'app-graphics',
@@ -24,7 +24,7 @@ export class GraphicsComponent implements AfterViewInit {
   modelLoader: ModelLoader;
   renderControl: RenderSetup;
   cloudsControl: CloudsSetup;
-  particlesControl: ParticlesSetup;
+  particlesControl: ParticlesSystem;
   HDRI: any;
   mainModel: any;
   clock: Clock;
@@ -43,7 +43,7 @@ export class GraphicsComponent implements AfterViewInit {
       this.modelLoader.loadHDRI('../../../assets/imgs/animestyled_hdr.hdr', this.sceneHandler.renderer);
       this.mainModel = await this.modelLoader.loadModel('../../../assets/models/pirate.glb');
       this.modelLoader.addMouseEvents(this.el.nativeElement);
-      this.particlesControl = new ParticlesSetup(this.sceneHandler.scene);
+      this.particlesControl = new ParticlesSystem(this.sceneHandler.scene);
       this.renderControl = new RenderSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.sceneHandler.renderer);
       this.el.nativeElement.appendChild(this.sceneHandler.renderer.domElement);
       this.loadingEl.nativeElement.classList.add('fade-out');

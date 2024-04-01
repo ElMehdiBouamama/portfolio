@@ -28,6 +28,26 @@ $background-color_4: #26335D;
     border-color: white;
 }
 
+.mat-mdc-tab-body.mat-mdc-tab-body-active {
+  height: 100%;
+}
+
+.mat-mdc-tab-body-wrapper {
+  height: 100%;
+}
+
+.mat-mdc-tab-labels {
+  padding: 1% 2% !important;
+}
+
+.mdc-tab__text-label {
+  color: $color_1 !important;
+}
+
+.mat-mdc-tab-body-content, .mat-mdc-tab-body.mat-mdc-tab-body-active {
+  overflow: hidden !important;
+}
+
 html {
   font-size: 14px;
 }

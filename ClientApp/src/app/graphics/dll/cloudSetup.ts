@@ -5,7 +5,7 @@ export class CloudsSetup {
 
   camera: Camera;
   clouds: InstancedMesh
-  fileName: string = 'cloud.png';
+  fileName: string = 'cloud.webp';
   planeSize = 64;
   cloudSpacing = 700;
   numberClouds = 600;
@@ -83,6 +83,7 @@ export class CloudsSetup {
       };
     }();
 
+    // TODO: Add attribute for position and time to live for each clonedPlaneGeo here
     for (let i = 0; i < this.numberClouds; i++) {
       randomizeMatrix(matrix, this.cloudSpacing, this.numberClouds, i);
       const clonedPlaneGeo = planeGeo.clone();
@@ -93,36 +94,12 @@ export class CloudsSetup {
     const planeGeos = mergeGeometries(geometries);
     this.clouds = new InstancedMesh(planeGeos, material, 1);
     this.clouds.name = "clouds";
-
-    // Instanced Geometry
-
-    //this.clouds = new InstancedMesh(planeGeo, material, this.numberClouds);
-
-    //for (let i = 0; i < this.numberClouds; i++) {
-    //  randomizeMatrix(matrix, this.cloudSpacing, this.numberClouds, i);
-    //  this.clouds.setMatrixAt(i, matrix);
-    //}
-
     scene.add(this.clouds);
-
-
-    //scene.add(this.clouds);
-
-    // GUI
-    const parameters = {
-      fogColor: fog.color,
-      fogNear: fog.near,
-      fogFar: fog.far
-    };
-    function update() {
-      material.uniforms.fogColor.value = new Color(parameters.fogColor.r / 255, parameters.fogColor.g / 255, parameters.fogColor.b / 255);
-      material.uniforms.fogNear.value = parameters.fogNear;
-      material.uniforms.fogFar.value = parameters.fogFar;
-    }
   }
 
   animate() {
+    // TODO: move the clouds independently from one another 
     this.clouds.position.x -= 0.1;
-    this.clouds.position.x %= 100;
+    this.clouds.position.x %= 250;
   }
 }

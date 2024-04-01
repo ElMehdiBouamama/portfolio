@@ -44,7 +44,6 @@ export class ParticlesSystem {
       // Update position based on velocity
       positions.array[index] -= this.speed.x;
       positions.array[index + 1] -= Math.sin(positions.array[index]) * this.speed.y;
-      //positions.array[index + 1] -= (positions.array[index + 1] + this.speed.y.next().value) / 2;
 
       // Update ttl and reset position if ttl reaches 0
       if ((ttls.array[i] -= 1) <= 0) {

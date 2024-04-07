@@ -10,7 +10,7 @@
     "build": "ng build",
     "deploy": "ng build --base-href /mehdi.bouamama.net/",
     "build:stats": "ng build --stats-json",
-    "analyze": "webpack-bundle-analyzer dist/stats.json && webpack-bundle-analyzer",
+    "analyze": "npm run build:stats && webpack-bundle-analyzer dist/stats.json && webpack-bundle-analyzer",
     "build:ssr": "ng run Explorations:server:dev",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

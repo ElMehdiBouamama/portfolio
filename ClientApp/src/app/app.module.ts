@@ -5,8 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { CdkListboxModule } from '@angular/cdk/listbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
-import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { AppComponent } from './app.component';
 import { GraphicsComponent } from './graphics/graphics.component';
 import { HomeComponent } from './home/home.component';
@@ -40,7 +38,6 @@ import { TechsComponent } from './techs/techs.component';
     FormsModule,
     RouterModule,
     CommonModule,
-    ApiAuthorizationModule,
     CdkListboxModule,
     MatIconModule,
     MatTabsModule,
@@ -49,7 +46,6 @@ import { TechsComponent } from './techs/techs.component';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatExpansionModule,
-    ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full', data: { animation: 'Home' } },
       { path: 'projects', component: ProjectsComponent, data: { animation: 'Projects' } },
@@ -58,9 +54,7 @@ import { TechsComponent } from './techs/techs.component';
     ]),
     BrowserAnimationsModule
   ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

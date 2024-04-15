@@ -37,28 +37,39 @@ export class ModelLoader {
       mouseX = 0,
       mouseY = 0,
       root = this.model;
-    target.addEventListener('mousemove', function (evt) {
+    var onMouseMove = function (evt: MouseEvent | TouchEvent) {
       evt.preventDefault();
       if (!mouseDown) {
         return;
       }
-      var deltaX = evt.clientX - mouseX;
-      mouseX = evt.clientX;
+      let clX = (evt instanceof MouseEvent) ? evt.clientX: evt.touches.item(0)?.clientX ?? 0;
+      var deltaX = clX - mouseX;
+      mouseX = clX;
       root.rotation.y += deltaX / (Math.PI * 100);
       evt.stopPropagation();
-    }, false);
-    target.addEventListener('mousedown', function (evt) {
+    };
+    var onMouseDown = function (evt: MouseEvent | TouchEvent) {
       evt.preventDefault();
       mouseDown = true;
-      mouseX = evt.clientX;
-      mouseY = evt.clientY;
+      let clX = (evt instanceof MouseEvent) ? evt.clientX : evt.touches.item(0)?.clientX ?? 0;
+      let clY = (evt instanceof MouseEvent) ? evt.clientY : evt.touches.item(0)?.clientY ?? 0;
+      mouseX = clX;
+      mouseY = clY;
       evt.stopPropagation();
-    }, false);
-    target.addEventListener('mouseup', function (evt) {
+    };
+
+    var onMouseUp = function (evt: MouseEvent | TouchEvent) {
       evt.preventDefault();
       mouseDown = false;
       evt.stopPropagation();
-    }, false);
+    };
+
+    target.addEventListener('mousemove', evt => onMouseMove(evt), false);
+    target.addEventListener('touchmove', evt => onMouseMove(evt), false);
+    target.addEventListener('mousedown', evt => onMouseDown(evt), false);
+    target.addEventListener('touchstart', evt => onMouseDown(evt), false);
+    target.addEventListener('mouseup', evt => onMouseUp(evt), false);
+    target.addEventListener('touchend', evt => onMouseUp(evt), false);
   }
 
   loadHDRI(path: string, renderer: THREE.WebGLRenderer) {

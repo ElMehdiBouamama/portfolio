@@ -24,17 +24,10 @@ export class SceneHandler {
   }
 
   onResize() {
-    var w = screen.width;;
-    var h = screen.height;
-    console.log(window.innerWidth, screen.width)
+    var w = window.innerWidth;;
+    var h = window.innerHeight;
     this.renderer.setSize(w, h, true);
     this.camera.aspect = w / h;
-    //if (this.camera.aspect > 1) {
-    //  //portrate ... (if needed) you can modify camera.z using camera.aspect as coefficient 
-    //  //or object width
-    //} else {
-    //  //landscape
-    //}
     this.camera.updateProjectionMatrix();
   }
 

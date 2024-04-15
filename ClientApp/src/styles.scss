@@ -25,7 +25,7 @@ $background-color_4: #26335D;
 }
 
 .mat-mdc-tab-header-pagination-chevron {
-    border-color: white;
+  border-color: white;
 }
 
 .mat-mdc-tab-body.mat-mdc-tab-body-active {
@@ -116,8 +116,21 @@ code {
   gap: 1.1875rem;
 }
 
-@media (min-width: 768px) {
+/* typical phone screen resolution */
+@media only screen and (max-width : 667px) {
   html {
-    font-size: 16px;
+    font-size: 70%;
+  }
+}
+/* landscape orientation */
+@media only screen and (min-width : 375px) and (max-width : 667px) and (orientation : landscape) {
+  html {
+    font-size: 50%;
+  }
+}
+/* portrait orientation */
+@media only screen and (min-width : 375px) and (max-width : 667px) and (orientation : portrait) {
+  html {
+    font-size: 50%;
   }
 }

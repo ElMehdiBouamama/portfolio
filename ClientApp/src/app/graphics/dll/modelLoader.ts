@@ -1,35 +1,32 @@
+import { BehaviorSubject } from 'rxjs';
 import { Camera, Color, Group, Mesh, PMREMGenerator, Scene, Texture } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
+import { loadingElements } from '../graphics.component';
 
 export class ModelLoader {
-  scene: Scene;
   HDRI: Texture;
   model: Group;
-  camera: Camera;
 
-  constructor(scene: Scene, camera: Camera) {
-    this.scene = scene;
-    this.camera = camera;
-  }
+  constructor(public scene: Scene, public camera: Camera, private $isReady: BehaviorSubject<loadingElements>) { }
 
-  async loadModel(path: string, options: { visible?: boolean } = { visible: true }) {
-    const gltf = await new GLTFLoader().loadAsync(
-      path,
-      (xhr) => { }
-    );
-    gltf.scene.traverse(function (node) {
-      if (node instanceof Mesh) {
-        //if (options.addControl && options.control) options.control.attach(node);
-        if (!options.visible) node.visible = false;
-        if (node.name.toLowerCase() == "cube001") {
-          node.material.color = new Color(0.02, 0.285, 0.04);
-        }
-      }
-    });
-    this.scene.add(gltf.scene);
-    this.model = gltf.scene;
-    return gltf.scene;
+  loadModel(path: string, options: { visible?: boolean } = { visible: true }) {
+    new GLTFLoader()
+      .loadAsync(path, (xhr) => { })
+      .then((gltf) => {
+        gltf.scene.traverse(function (node) {
+          if (node instanceof Mesh) {
+            //if (options.addControl && options.control) options.control.attach(node);
+            if (!options.visible) node.visible = false;
+            if (node.name.toLowerCase() == "cube001") {
+              node.material.color = new Color(0.02, 0.285, 0.04);
+            }
+          }
+        });
+        this.scene.add(gltf.scene);
+        this.model = gltf.scene;
+        this.$isReady.next({ ...this.$isReady.value, model: true });
+      });
   }
 
   addMouseEvents(target: HTMLElement) {
@@ -42,7 +39,7 @@ export class ModelLoader {
       if (!mouseDown) {
         return;
       }
-      let clX = (evt instanceof MouseEvent) ? evt.clientX: evt.touches.item(0)?.clientX ?? 0;
+      let clX = (evt instanceof MouseEvent) ? evt.clientX : evt.touches.item(0)?.clientX ?? 0;
       var deltaX = clX - mouseX;
       mouseX = clX;
       root.rotation.y += deltaX / (Math.PI * 100);
@@ -80,6 +77,7 @@ export class ModelLoader {
       this.scene.background = envMap
       texture.dispose()
       gen.dispose();
+      this.$isReady.next({ ...this.$isReady.value, hdri: true });
     });
   }
 

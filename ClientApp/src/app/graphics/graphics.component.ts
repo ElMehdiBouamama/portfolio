@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 import gsap from "gsap";
-import { BehaviorSubject, distinctUntilChanged } from 'rxjs';
+import { BehaviorSubject, Observable, distinctUntilChanged, of } from 'rxjs';
 import { Clock, Vector3 } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { transitionService } from '../shared/transition.service';
@@ -30,36 +30,53 @@ export class GraphicsComponent implements AfterViewInit {
   clock: Clock;
   shouldMoveCamera$: BehaviorSubject<Vector3> = new BehaviorSubject(new Vector3());
 
+  $isReady: BehaviorSubject<loadingElements>;
+
   constructor(private ngZone: NgZone, private service: transitionService) {
   }
 
   async ngAfterViewInit() {
     this.ngZone.runOutsideAngular(async () => {
+      this.$isReady = new BehaviorSubject<loadingElements>({
+        model: false,
+        scene: false,
+        lights: false,
+        clouds: false,
+        hdri: false,
+        particles: false
+      });
+      this.$isReady.subscribe(x => {
+        let isReady = Object.values(x).reduce((p, c) => p * c) == true;
+        if (isReady) {
+          this.mainModel = this.modelLoader.model;
+          this.el.nativeElement.appendChild(this.sceneHandler.renderer.domElement);
+          this.loadingEl.nativeElement.classList.add('fade-out');
+          this.sceneHandler.camera.position.set(0, 10, 20);
+          this.sceneHandler.camera.rotation.set(-0.2, 0, 0);
+          this.service.isLoaded$.next(true);
+          this.animate(this.renderControl.composer);
+          this.clock.start();
+          setTimeout(() => {
+            this.loadingEl.nativeElement.classList.add('d-none')
+            this.shouldMoveCamera$
+              .pipe(distinctUntilChanged())
+              .subscribe(pos => {
+                gsap.to(this.sceneHandler.camera.position, { duration: 1, x: pos.x, y: pos.y, z: pos.z });
+              });
+          }, 250);
+        }
+      });
       this.clock = new Clock();
-      this.sceneHandler = new SceneHandler(this.el.nativeElement);
-      this.lightsSetup = new LightsSetup(this.sceneHandler.scene);
-      this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.sceneHandler.camera);
-      this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.sceneHandler.camera);
+      this.sceneHandler = new SceneHandler(this.el.nativeElement, this.$isReady);
+      this.lightsSetup = new LightsSetup(this.sceneHandler.scene, this.$isReady);
+      this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
+      this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
       this.modelLoader.loadHDRI('../../../assets/imgs/animestyled_hdr.hdr', this.sceneHandler.renderer);
-      this.mainModel = await this.modelLoader.loadModel('../../../assets/models/pirate.glb');
+      this.mainModel = this.modelLoader.loadModel('../../../assets/models/pirate.glb');
       this.modelLoader.addMouseEvents(this.el.nativeElement);
-      this.particlesControl = new ParticlesSystem(this.sceneHandler.scene);
+      this.particlesControl = new ParticlesSystem(this.sceneHandler.scene, this.$isReady);
       this.renderControl = new RenderSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.sceneHandler.renderer);
-      this.el.nativeElement.appendChild(this.sceneHandler.renderer.domElement);
-      this.loadingEl.nativeElement.classList.add('fade-out');
-      this.sceneHandler.camera.position.set(0, 10, 20);
-      this.sceneHandler.camera.rotation.set(-0.2, 0, 0);
-      this.animate(this.renderControl.composer);
-      this.service.isLoaded$.next(true);
-      this.clock.start();
-      setTimeout(() => {
-        this.loadingEl.nativeElement.classList.add('d-none')
-        this.shouldMoveCamera$
-          .pipe(distinctUntilChanged())
-          .subscribe(pos => {
-            gsap.to(this.sceneHandler.camera.position, { duration: 1, x: pos.x, y: pos.y, z: pos.z });
-          });
-      }, 250);
+
     });
   }
 
@@ -81,5 +98,13 @@ export class GraphicsComponent implements AfterViewInit {
   get targetCameraPosition() {
     return this.routesTargetPosition[this.service.currentPage];
   }
+}
 
+export interface loadingElements {
+  model: boolean;
+  scene: boolean;
+  lights: boolean;
+  clouds: boolean;
+  hdri: boolean;
+  particles: boolean;
 }

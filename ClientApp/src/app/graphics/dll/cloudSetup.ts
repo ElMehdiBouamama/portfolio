@@ -1,16 +1,17 @@
+import { BehaviorSubject } from 'rxjs';
 import { Camera, Color, Fog, InstancedMesh, Matrix4, PlaneGeometry, Quaternion, Scene, ShaderMaterial, TextureLoader, Vector3 } from 'three';
 import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { loadingElements } from '../graphics.component';
 
 export class CloudsSetup {
 
-  camera: Camera;
   clouds: InstancedMesh
   fileName: string = 'cloud.webp';
   planeSize = 64;
   cloudSpacing = 700;
   numberClouds = 600;
 
-  constructor(scene: Scene, camera: Camera) {
+  constructor(private scene: Scene, public camera: Camera, private $isReady: BehaviorSubject<loadingElements>) {
     this.camera = camera;
     const vertexShader = /* glsl */`
 			    varying vec2 vUv;
@@ -95,6 +96,7 @@ export class CloudsSetup {
     this.clouds = new InstancedMesh(planeGeos, material, 1);
     this.clouds.name = "clouds";
     scene.add(this.clouds);
+    $isReady.next({ ...$isReady.value, clouds: true });
   }
 
   animate() {

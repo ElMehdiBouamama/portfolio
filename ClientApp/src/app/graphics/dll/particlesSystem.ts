@@ -1,4 +1,6 @@
+import { BehaviorSubject } from 'rxjs';
 import { BufferAttribute, BufferGeometry, Color, Points, PointsMaterial, Scene, Vector3 } from 'three';
+import { loadingElements } from '../graphics.component';
 
 export class ParticlesSystem {
   particlesNumber = 200;
@@ -14,7 +16,7 @@ export class ParticlesSystem {
 
 
 
-  constructor(scene: Scene) {
+  constructor(scene: Scene, private $isReady: BehaviorSubject<loadingElements>) {
     this.positions = new Float32Array(this.particlesNumber * 3);
     this.ttls = new Float32Array(this.particlesNumber);
 
@@ -32,6 +34,7 @@ export class ParticlesSystem {
     this.material = new PointsMaterial({ color: new Color(1, 1, 1).multiplyScalar(15), size: 0.1 });
     this.points = new Points(this.geometry, this.material);
     scene.add(this.points);
+    $isReady.next({ ...$isReady.value, particles: true });
   }
 
   animate() {

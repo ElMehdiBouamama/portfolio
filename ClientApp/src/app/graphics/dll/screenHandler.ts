@@ -1,11 +1,13 @@
+import { BehaviorSubject } from 'rxjs';
 import { ACESFilmicToneMapping, Color, PerspectiveCamera, SRGBColorSpace, Scene, WebGLRenderer } from 'three';
+import { loadingElements } from '../graphics.component';
 
 export class SceneHandler {
   scene: Scene;
   renderer: WebGLRenderer;
   camera: PerspectiveCamera;
 
-  constructor(element: HTMLElement) {
+  constructor(element: HTMLElement, $isReady: BehaviorSubject<loadingElements>) {
     this.scene = new Scene();
     this.scene.background = new Color(0, 0, 0);
     this.renderer = new WebGLRenderer({ alpha: true, antialias: true });
@@ -16,6 +18,7 @@ export class SceneHandler {
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.camera = new PerspectiveCamera(50, element.clientWidth / element.clientHeight, 0.1, 1000);
     this.initResizeHandler();
+    $isReady.next({ ...$isReady.value, scene: true });
   }
 
   private initResizeHandler() {
@@ -30,8 +33,6 @@ export class SceneHandler {
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
   }
-
-
 
   private resizeCanvasToDisplaySize() {
     const width = window.innerWidth;

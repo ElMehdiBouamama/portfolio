@@ -1,25 +1,26 @@
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CdkListboxModule } from '@angular/cdk/listbox';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { CdkListboxModule } from '@angular/cdk/listbox';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { AboutComponent } from './about/about.component';
 import { AppComponent } from './app.component';
 import { GraphicsComponent } from './graphics/graphics.component';
 import { HomeComponent } from './home/home.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { AboutComponent } from './about/about.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { CommonModule } from '@angular/common';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { ProjectComponent } from './shared/project/project.component';
 import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ProjectComponent } from './shared/project/project.component';
 import { TechsComponent } from './techs/techs.component';
+
 
 @NgModule({
   declarations: [

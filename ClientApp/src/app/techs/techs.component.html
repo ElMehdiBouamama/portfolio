@@ -4,7 +4,7 @@
     <span>Home</span>
   </button>
 </div>
-<mat-tab-group mat-stretch-tabs="true" mat-align-tabs="start" class="content-container">
+<mat-tab-group #tabGroup mat-stretch-tabs="true" mat-align-tabs="start" class="content-container" [selectedIndex]="selected" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
   <mat-tab *ngFor="let category of categories" [label]="category.name">
     <div class="content-bg"></div>
     <div class="technologies-container">

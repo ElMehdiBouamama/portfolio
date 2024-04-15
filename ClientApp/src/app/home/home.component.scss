@@ -38,9 +38,9 @@ span {
       font-size: 2rem;
       letter-spacing: 2px;
       line-height: normal;
-      margin-bottom: 0; 
+      margin-bottom: 0;
       position: relative;
-      top: -16px;
+      top: -1rem;
     }
   }
 
@@ -55,6 +55,14 @@ span {
 @media only screen and (max-width : 667px) {
   .contact-container, .about-container, .project-container, .tech-container {
     display: none !important;
+  }
+
+  .title-container {
+    top: 7.5%;
+
+    > p {
+        display: none;
+    }
   }
 }
 

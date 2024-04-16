@@ -38,8 +38,10 @@ $background-color_4: #26335D;
 }
 
 :root {
+  color-scheme: only light;
   --mdc-tab-indicator-active-indicator-color: white;
 }
+
 
 .mat-mdc-tab-header-pagination-chevron {
   border-color: white;

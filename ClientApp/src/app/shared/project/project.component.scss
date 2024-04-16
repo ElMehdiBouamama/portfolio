@@ -64,7 +64,7 @@ mat-icon {
     justify-content: center;
 
     &:nth-child(1) {
-      height: 68%;
+      max-height: 68%;
 
       > img {
         height: 100%;

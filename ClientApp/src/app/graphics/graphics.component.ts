@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, NgZone, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 import gsap from "gsap";
 import { BehaviorSubject, Observable, distinctUntilChanged, of } from 'rxjs';
 import { Clock, Vector3 } from 'three';
@@ -14,7 +14,8 @@ import { ParticlesSystem } from './dll/particlesSystem';
 @Component({
   selector: 'app-graphics',
   templateUrl: './graphics.component.html',
-  styleUrls: ['./graphics.component.scss']
+  styleUrls: ['./graphics.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GraphicsComponent implements AfterViewInit {
   @ViewChild('graphicsContainer', { static: true }) el: ElementRef;
@@ -45,15 +46,26 @@ export class GraphicsComponent implements AfterViewInit {
         hdri: false,
         particles: false
       });
+      this.clock = new Clock();
+      this.sceneHandler = new SceneHandler(this.el.nativeElement, this.$isReady);
+      this.lightsSetup = new LightsSetup(this.sceneHandler.scene, this.$isReady);
+      this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
+      this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
+      this.particlesControl = new ParticlesSystem(this.sceneHandler.scene, this.$isReady);
+      this.modelLoader.loadHDRI('../../../assets/imgs/animestyled_hdr.hdr', this.sceneHandler.renderer);
+      this.modelLoader.loadModel('../../../assets/models/pirate.glb');
       this.$isReady.subscribe(x => {
-        let isReady = Object.values(x).reduce((p, c) => p * c) == true;
+        console.log(x);
+        let isReady = Object.values(x).reduce((p, c) => p && c);
+        this.service.isLoaded$.next(isReady);
         if (isReady) {
           this.mainModel = this.modelLoader.model;
+          this.modelLoader.addMouseEvents(this.el.nativeElement);
+          this.renderControl = new RenderSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.sceneHandler.renderer);
           this.el.nativeElement.appendChild(this.sceneHandler.renderer.domElement);
-          this.loadingEl.nativeElement.classList.add('fade-out');
           this.sceneHandler.camera.position.set(0, 10, 20);
           this.sceneHandler.camera.rotation.set(-0.2, 0, 0);
-          this.service.isLoaded$.next(true);
+          this.loadingEl.nativeElement.classList.add('fade-out');
           this.animate(this.renderControl.composer);
           this.clock.start();
           setTimeout(() => {
@@ -61,22 +73,11 @@ export class GraphicsComponent implements AfterViewInit {
             this.shouldMoveCamera$
               .pipe(distinctUntilChanged())
               .subscribe(pos => {
-                gsap.to(this.sceneHandler.camera.position, { duration: 1, x: pos.x, y: pos.y, z: pos.z });
+                gsap.to(this.sceneHandler.camera.position, { duration: 2, x: pos.x, y: pos.y, z: pos.z });
               });
           }, 250);
         }
       });
-      this.clock = new Clock();
-      this.sceneHandler = new SceneHandler(this.el.nativeElement, this.$isReady);
-      this.lightsSetup = new LightsSetup(this.sceneHandler.scene, this.$isReady);
-      this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
-      this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
-      this.modelLoader.loadHDRI('../../../assets/imgs/animestyled_hdr.hdr', this.sceneHandler.renderer);
-      this.mainModel = this.modelLoader.loadModel('../../../assets/models/pirate.glb');
-      this.modelLoader.addMouseEvents(this.el.nativeElement);
-      this.particlesControl = new ParticlesSystem(this.sceneHandler.scene, this.$isReady);
-      this.renderControl = new RenderSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.sceneHandler.renderer);
-
     });
   }
 
@@ -84,17 +85,18 @@ export class GraphicsComponent implements AfterViewInit {
     requestAnimationFrame(() => this.animate(composer));
     this.cloudsControl.animate();
     this.particlesControl.animate();
-    this.mainModel.rotation.y -= 0.001;
-    this.mainModel.position.y += Math.sin(this.clock.getElapsedTime()) / 200;
+    this.modelLoader.animate(this.clock);
     this.shouldMoveCamera$.next(this.targetCameraPosition);
     composer.render();
   }
+
   private routesTargetPosition: { [route: string]: Vector3; } = {
     Home: new Vector3(0, 4.5, 14.5),
     About: new Vector3(-7, 0, 6),
     Projects: new Vector3(3, -5, 6),
     Techs: new Vector3(7, 0, 6)
   };
+
   get targetCameraPosition() {
     return this.routesTargetPosition[this.service.currentPage];
   }

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import data from '../shared/content.json';
 import { MatTabGroup } from '@angular/material/tabs';
@@ -6,7 +6,8 @@ import { MatTabGroup } from '@angular/material/tabs';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsComponent {
   img: string = "../../../assets/hero-figure.png";

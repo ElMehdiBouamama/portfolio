@@ -1,5 +1,5 @@
 import { BehaviorSubject } from 'rxjs';
-import { Camera, Color, Group, Mesh, PMREMGenerator, Scene, Texture } from 'three';
+import { Camera, Clock, Color, Group, Mesh, PMREMGenerator, Scene, Texture } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import { loadingElements } from '../graphics.component';
@@ -9,25 +9,6 @@ export class ModelLoader {
   model: Group;
 
   constructor(public scene: Scene, public camera: Camera, private $isReady: BehaviorSubject<loadingElements>) { }
-
-  loadModel(path: string, options: { visible?: boolean } = { visible: true }) {
-    new GLTFLoader()
-      .loadAsync(path, (xhr) => { })
-      .then((gltf) => {
-        gltf.scene.traverse(function (node) {
-          if (node instanceof Mesh) {
-            //if (options.addControl && options.control) options.control.attach(node);
-            if (!options.visible) node.visible = false;
-            if (node.name.toLowerCase() == "cube001") {
-              node.material.color = new Color(0.02, 0.285, 0.04);
-            }
-          }
-        });
-        this.scene.add(gltf.scene);
-        this.model = gltf.scene;
-        this.$isReady.next({ ...this.$isReady.value, model: true });
-      });
-  }
 
   addMouseEvents(target: HTMLElement) {
     var mouseDown = false,
@@ -70,7 +51,7 @@ export class ModelLoader {
   }
 
   loadHDRI(path: string, renderer: THREE.WebGLRenderer) {
-    this.HDRI = new RGBELoader().load(path, texture => {
+    new RGBELoader().loadAsync(path, (xhr) => console.log(xhr.loaded / xhr.total)).then(texture => {
       const gen = new PMREMGenerator(renderer)
       const envMap = gen.fromEquirectangular(texture).texture
       this.scene.environment = envMap
@@ -81,6 +62,26 @@ export class ModelLoader {
     });
   }
 
-  animate() {
+  loadModel(path: string, options: { visible?: boolean } = { visible: true }) {
+    new GLTFLoader()
+      .loadAsync(path, (xhr) => { console.log(xhr.loaded / xhr.total) })
+      .then((gltf) => {
+        gltf.scene.traverse(function (node) {
+          if (node instanceof Mesh) {
+            //if (options.addControl && options.control) options.control.attach(node);
+            if (!options.visible) node.visible = false;
+            if (node.name.toLowerCase() == "cube001") {
+              node.material.color = new Color(0.02, 0.285, 0.04);
+            }
+          }
+        });
+        this.scene.add(gltf.scene);
+        this.model = gltf.scene;
+        this.$isReady.next({ ...this.$isReady.value, model: true });
+      });
+  }
+  animate(clock: Clock) {
+    this.model.rotation.y -= 0.001;
+    this.model.position.y += Math.sin(clock.getElapsedTime()) / 200;
   }
 }

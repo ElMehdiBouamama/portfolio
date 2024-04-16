@@ -1,10 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-techs',
   templateUrl: './techs.component.html',
-  styleUrls: ['./techs.component.scss']
+  styleUrls: ['./techs.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TechsComponent {
   @ViewChild('tabGroup', { static: true }) tabGroup: MatTabGroup;

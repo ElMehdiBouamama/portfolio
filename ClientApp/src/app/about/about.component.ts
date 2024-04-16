@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import content from '../shared/content.json';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import content from '../shared/content.json';
 import { EmailService } from '../shared/email.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutComponent {
   emailForm = new FormGroup({

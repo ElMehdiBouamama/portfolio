@@ -11,8 +11,7 @@ export class CloudsSetup {
   cloudSpacing = 700;
   numberClouds = 600;
 
-  constructor(private scene: Scene, public camera: Camera, private $isReady: BehaviorSubject<loadingElements>) {
-    this.camera = camera;
+  constructor(scene: Scene, public camera: Camera, $isReady: BehaviorSubject<loadingElements>) {
     const vertexShader = /* glsl */`
 			    varying vec2 vUv;
 

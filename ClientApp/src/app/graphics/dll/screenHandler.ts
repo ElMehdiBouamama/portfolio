@@ -10,7 +10,7 @@ export class SceneHandler {
   constructor(element: HTMLElement, $isReady: BehaviorSubject<loadingElements>) {
     this.scene = new Scene();
     this.scene.background = new Color(0, 0, 0);
-    this.renderer = new WebGLRenderer({ alpha: true, antialias: true });
+    this.renderer = new WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
     this.renderer.setClearColor(0x000000, 0);
     this.renderer.shadowMap.enabled = true;
     this.renderer.outputColorSpace = SRGBColorSpace;

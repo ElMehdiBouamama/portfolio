@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
-import { slideInAnimation } from '../shared/route-animation';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { slideInAnimation } from '../shared/route-animation';
 
 const GITHUB_ICON = `
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -20,7 +19,8 @@ const LINKEDIN_ICON = `
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  animations: [slideInAnimation]
+  animations: [slideInAnimation],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {

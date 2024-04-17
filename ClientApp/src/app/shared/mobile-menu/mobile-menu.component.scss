@@ -3,7 +3,7 @@ nav {
   display: none;
 }
 
-@media only screen and (max-width: 667px) {
+@media only screen and (max-width: 667px), (max-height: 625px) {
   .main-nav,
   .open-main-nav {
     position: absolute;

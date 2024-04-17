@@ -7,11 +7,11 @@
 <mat-tab-group #tabGroup mat-stretch-tabs="true" mat-align-tabs="start" class="content-container" [selectedIndex]="selected" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
   <mat-tab *ngFor="let category of categories" [label]="category.name">
     <div class="content-bg"></div>
-    <div class="technologies-container">
-      <span *ngFor="let technology of category.technologies" (click)="openTechPage(technology)">
-        <img [src]="technology.img" width="128"/>
+    <div class="technologies-container d-flex flex-wrap align-items-center justify-content-center">
+      <div class="d-flex flex-column align-items-center text-center position-relative" *ngFor="let technology of category.technologies" (click)="openTechPage(technology)">
+        <img class="position-relative" [ngSrc]="technology.img" fill priority placeholder/>
         {{technology.name}}
-      </span>
+      </div>
     </div>
   </mat-tab>
 </mat-tab-group>

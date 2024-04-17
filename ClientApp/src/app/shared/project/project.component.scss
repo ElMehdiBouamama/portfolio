@@ -4,7 +4,7 @@ $color_1: white;
   height: 100%;
   padding: 2rem;
   border-radius: 0.75rem;
-  gap: 1rem;
+  gap: 3rem;
   overflow: hidden;
   text-align: justify;
 }
@@ -54,21 +54,14 @@ mat-icon {
 }
 
 .project-galery {
-  gap: 16px;
-  max-width: 40%;
+  gap: 2rem;
 
   > div {
-    gap: 32px;
-    max-height: 30%;
-    min-width: 460px;
-    justify-content: center;
 
     &:nth-child(2) {
-      max-height: 68%;
+      height: 80%;
 
-      > img {
-        height: 100%;
-        width: 100%;
+       img {
         filter: opacity(0.95);
         object-fit: contain;
 
@@ -82,15 +75,21 @@ mat-icon {
       }
     }
 
-    &:nth-child(1) > button {
-      background: transparent;
-      border: none;
+    &:nth-child(1) {
+      gap: 2rem;
+      height: 20%;
+      min-width: 460px;
+      justify-content: center;
 
-      > img {
-        max-width: 100%;
-        max-height: 100%;
-        -o-object-fit: cover;
-        object-fit: cover;
+      > button {
+        background: transparent;
+        border: none;
+        width: 33%;
+
+        > img {
+          -o-object-fit: cover;
+          object-fit: cover;
+        }
       }
     }
   }
@@ -137,4 +136,3 @@ mat-icon {
     display: none !important;
   }
 }
-

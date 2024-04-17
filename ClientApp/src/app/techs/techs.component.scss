@@ -11,31 +11,18 @@ $background-color_1: #A7C8D580;
   border-radius: 10px;
   background-image: radial-gradient( ellipse 840px 840px at 140px 45px, #47a6ab38 0%, #2a5b71a6 100% );
   box-shadow: 4px 4px 4px 0px #0006;
-
-  * {
-    text-shadow: 0px 2px 4px #00000080;
-    /*overflow: hidden;*/
-  }
 }
 
 .technologies-container {
-  padding: 32px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
 
-  > span {
+  > div {
+    padding: 1rem 0.5rem;
+    width: 10rem;
+    text-shadow: 0px 2px 4px #00000080;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    padding: 16px 8px;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+    height: auto;
   }
 }
 
@@ -47,7 +34,6 @@ $background-color_1: #A7C8D580;
   box-shadow: inset 0px 4px 8px -4px #00000080;
   z-index: -1;
   border-radius: 10px;
-  /*overflow: hidden;*/
 }
 
 .home-container {
@@ -110,13 +96,9 @@ $background-color_1: #A7C8D580;
   .technologies-container {
     gap: 0;
 
-    > span {
+    > div {
       width: 33%;
       text-align: center;
-
-      > img {
-        width: 100%;
-      }
     }
   }
 

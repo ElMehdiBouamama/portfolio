@@ -42,11 +42,13 @@
   <div class="project-galery d-flex flex-column">
     <div class="d-flex">
       <button *ngFor="let img of sideImgs" class="position-relative" (click)="use(img)">
-        <img class="img-animation" [src]="img" />
+        <img class="img-animation" [ngSrc]="img" fill priority placeholder />
       </button>
     </div>
     <div class="position-relative">
-      <img class='img-animation' [src]="mainImg" />
+      <div *ngFor="let img of sideImgs" [ngClass]="{'d-none': img != mainImg}">
+        <img class='img-animation' [ngSrc]="img" fill priority placeholder/>
+      </div>
     </div>
   </div>
 </div>

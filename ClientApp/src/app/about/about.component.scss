@@ -22,6 +22,7 @@ mat-error {
   transform: translate(-50%, -50%);
   width: 40%;
   height: 90%;
+  min-height: 360px;
   font-family: $font-family_1;
   background-image: radial-gradient( ellipse 600px 1100px at 150px 50px, #2eb7b317 0%, #1d6b9587 100% );
   box-shadow: 2px 2px 8px -4px black;
@@ -29,8 +30,7 @@ mat-error {
 }
 
 .pfp-img {
-  width: 100% !important;
-  height: auto !important;
+  position: relative !important;
   max-width: 171px;
   filter: drop-shadow(2px 2px 2px black) opacity(1);
   background: #ffffff30;
@@ -170,11 +170,17 @@ input {
     width: 70%;
     height: 90%;
   }
-/*
+  /*
   .top-container {
     padding: 10px 30px !important;
     gap: 16px;
   }*/
+}
+
+@media only screen and (max-height : 725px) {
+  .top-container {
+    display: none !important;
+  }
 }
 
 @media only screen and (max-width : 667px) {
@@ -187,12 +193,11 @@ input {
 
   .top-container {
     > img {
-        display: none;
+      display: none;
     }
 
     > .info-container {
-
-        max-width: none;
+      max-width: none;
     }
   }
 

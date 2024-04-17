@@ -1,5 +1,5 @@
 import { CdkListboxModule } from '@angular/cdk/listbox';
-import { CommonModule } from '@angular/common';
+import { CommonModule, IMAGE_CONFIG } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +20,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { MobileMenuComponent } from './shared/mobile-menu/mobile-menu.component';
 import { ProjectComponent } from './shared/project/project.component';
 import { TechsComponent } from './techs/techs.component';
-
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -35,6 +35,7 @@ import { TechsComponent } from './techs/techs.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     RouterModule,
@@ -47,15 +48,15 @@ import { TechsComponent } from './techs/techs.component';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatExpansionModule,
+    NgOptimizedImage,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full', data: { animation: 'Home' } },
       { path: 'projects', component: ProjectsComponent, data: { animation: 'Projects' } },
       { path: 'techs', component: TechsComponent, data: { animation: 'Techs' }, },
       { path: 'about', component: AboutComponent, data: { animation: 'About' }, }
     ]),
-    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{ provide: IMAGE_CONFIG, useValue: { placeholderResolution: 40 } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -61,25 +61,19 @@ $background-color_1: #A7C8D580;
     color: $color_1 !important;
   }
 
-/*  .mat-mdc-tab-body-content, .mat-mdc-tab-body.mat-mdc-tab-body-active {
-    overflow: hidden !important;
-  }*/
+  .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs > .mat-mdc-tab-header .mat-mdc-tab {
+    padding: 0 1rem;
+  }
+
+  * {
+    font-size: 1rem;
+  }
 }
 
 /* typical phone screen resolution */
 @media only screen and (max-width : 667px) {
   .home-container {
     display: none !important;
-  }
-
-  ::ng-deep {
-    * {
-      font-size: 1rem;
-    }
-
-    .mat-mdc-tab-group.mat-mdc-tab-group-stretch-tabs > .mat-mdc-tab-header .mat-mdc-tab {
-      padding: 0 1rem;
-    }
   }
 
   .content-container {

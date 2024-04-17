@@ -1,6 +1,6 @@
 <div class="contact-container d-flex flex-column">
   <div class="d-flex top-container flex-wrap">
-    <img [src]="about.picture" class="pfp-img" />
+    <img class="pfp-img" [ngSrc]="about.picture" fill priority placeholder/>
     <div class="info-container">
       <h1>{{about.name}}</h1>
       <h3>{{about.role}}</h3>

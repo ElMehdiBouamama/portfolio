@@ -51,7 +51,7 @@ export class ModelLoader {
   }
 
   loadHDRI(path: string, renderer: THREE.WebGLRenderer) {
-    new RGBELoader().loadAsync(path, (xhr) => console.log(xhr.loaded / xhr.total)).then(texture => {
+    new RGBELoader().loadAsync(path, (xhr) => {/*console.log(xhr.loaded / xhr.total)*/ }).then(texture => {
       const gen = new PMREMGenerator(renderer)
       const envMap = gen.fromEquirectangular(texture).texture
       this.scene.environment = envMap
@@ -64,7 +64,7 @@ export class ModelLoader {
 
   loadModel(path: string, options: { visible?: boolean } = { visible: true }) {
     new GLTFLoader()
-      .loadAsync(path, (xhr) => { console.log(xhr.loaded / xhr.total) })
+      .loadAsync(path, (xhr) => { /*console.log(xhr.loaded / xhr.total)*/ })
       .then((gltf) => {
         gltf.scene.traverse(function (node) {
           if (node instanceof Mesh) {

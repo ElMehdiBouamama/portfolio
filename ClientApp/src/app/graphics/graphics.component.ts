@@ -55,7 +55,6 @@ export class GraphicsComponent implements AfterViewInit {
       this.modelLoader.loadHDRI('../../../assets/imgs/animestyled_hdr.hdr', this.sceneHandler.renderer);
       this.modelLoader.loadModel('../../../assets/models/pirate.glb');
       this.$isReady.subscribe(x => {
-        console.log(x);
         let isReady = Object.values(x).reduce((p, c) => p && c);
         this.service.isLoaded$.next(isReady);
         if (isReady) {

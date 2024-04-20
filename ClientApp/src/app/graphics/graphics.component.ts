@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, NgZone, ViewChild } from '@angular/core';
 import gsap from "gsap";
-import { BehaviorSubject, Observable, distinctUntilChanged, of } from 'rxjs';
+import { BehaviorSubject, distinctUntilChanged } from 'rxjs';
 import { Clock, Vector3 } from 'three';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
 import { transitionService } from '../shared/transition.service';
@@ -49,12 +49,12 @@ export class GraphicsComponent implements AfterViewInit {
       this.clock = new Clock();
       this.sceneHandler = new SceneHandler(this.el.nativeElement, this.$isReady);
       this.lightsSetup = new LightsSetup(this.sceneHandler.scene, this.$isReady);
-      this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
+      this.modelLoader = new ModelLoader('../../../assets/', this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
       this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
       this.particlesControl = new ParticlesSystem(this.sceneHandler.scene, this.$isReady);
-      this.modelLoader.loadHDRI('../../../assets/imgs/animestyled_hdr.hdr', this.sceneHandler.renderer);
-      this.modelLoader.loadModel('../../../assets/models/pirate.glb');
-      this.$isReady.subscribe(x => {
+      this.modelLoader.loadHDRI(['imgs/animestyled_hdr.webp', 'imgs/animestyled_hdr-gainmap.webp', 'imgs/animestyled_hdr.json'], this.sceneHandler.renderer);
+      this.modelLoader.loadModel('models/pirate.glb');
+      this.$isReady.subscribe((x:loadingElements) => {
         let isReady = Object.values(x).reduce((p, c) => p && c);
         this.service.isLoaded$.next(isReady);
         if (isReady) {

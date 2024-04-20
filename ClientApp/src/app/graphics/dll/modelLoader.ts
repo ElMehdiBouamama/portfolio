@@ -1,14 +1,15 @@
 import { BehaviorSubject } from 'rxjs';
-import { Camera, Clock, Color, Group, Mesh, PMREMGenerator, Scene, Texture } from 'three';
+import { Camera, Clock, Color, EquirectangularReflectionMapping, Group, Mesh, PMREMGenerator, Scene, Texture, WebGLRenderer } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import { loadingElements } from '../graphics.component';
+import { GainMapLoader } from '@monogrid/gainmap-js'
 
 export class ModelLoader {
   HDRI: Texture;
   model: Group;
 
-  constructor(public scene: Scene, public camera: Camera, private $isReady: BehaviorSubject<loadingElements>) { }
+  constructor(private basePath: string, public scene: Scene, public camera: Camera, private $isReady: BehaviorSubject<loadingElements>) { }
 
   addMouseEvents(target: HTMLElement) {
     var mouseDown = false,
@@ -16,7 +17,6 @@ export class ModelLoader {
       mouseY = 0,
       root = this.model;
     var onMouseMove = function (evt: MouseEvent | TouchEvent) {
-      evt.preventDefault();
       if (!mouseDown) {
         return;
       }
@@ -27,7 +27,6 @@ export class ModelLoader {
       evt.stopPropagation();
     };
     var onMouseDown = function (evt: MouseEvent | TouchEvent) {
-      evt.preventDefault();
       mouseDown = true;
       let clX = (evt instanceof MouseEvent) ? evt.clientX : evt.touches.item(0)?.clientX ?? 0;
       let clY = (evt instanceof MouseEvent) ? evt.clientY : evt.touches.item(0)?.clientY ?? 0;
@@ -37,34 +36,33 @@ export class ModelLoader {
     };
 
     var onMouseUp = function (evt: MouseEvent | TouchEvent) {
-      evt.preventDefault();
       mouseDown = false;
       evt.stopPropagation();
     };
 
-    target.addEventListener('mousemove', evt => onMouseMove(evt), false);
-    target.addEventListener('touchmove', evt => onMouseMove(evt), false);
-    target.addEventListener('mousedown', evt => onMouseDown(evt), false);
-    target.addEventListener('touchstart', evt => onMouseDown(evt), false);
-    target.addEventListener('mouseup', evt => onMouseUp(evt), false);
-    target.addEventListener('touchend', evt => onMouseUp(evt), false);
+    target.addEventListener('mousemove', evt => onMouseMove(evt), { passive: true });
+    target.addEventListener('touchmove', evt => onMouseMove(evt), { passive: true });
+    target.addEventListener('mousedown', evt => onMouseDown(evt), { passive: true });
+    target.addEventListener('touchstart', evt => onMouseDown(evt), { passive: true });
+    target.addEventListener('mouseup', evt => onMouseUp(evt), { passive: true });
+    target.addEventListener('touchend', evt => onMouseUp(evt), { passive: true });
   }
 
-  loadHDRI(path: string, renderer: THREE.WebGLRenderer) {
-    new RGBELoader().loadAsync(path, (xhr) => {/*console.log(xhr.loaded / xhr.total)*/ }).then(texture => {
-      const gen = new PMREMGenerator(renderer)
-      const envMap = gen.fromEquirectangular(texture).texture
-      this.scene.environment = envMap
-      this.scene.background = envMap
-      texture.dispose()
-      gen.dispose();
-      this.$isReady.next({ ...this.$isReady.value, hdri: true });
-    });
+  loadHDRI([texture, gainmap, metadata]: [string, string, string], renderer: WebGLRenderer) {
+    new GainMapLoader(renderer)
+      .loadAsync([this.basePath + texture, this.basePath + gainmap, this.basePath + metadata])
+      .then(res => {
+        this.scene.background = res.renderTarget.texture;
+        this.scene.background.mapping = EquirectangularReflectionMapping;
+        this.scene.environment = res.renderTarget.texture;
+        res.dispose();
+        this.$isReady.next({ ...this.$isReady.value, hdri: true });
+      });
   }
 
-  loadModel(path: string, options: { visible?: boolean } = { visible: true }) {
+  loadModel(fileName: string, options: { visible?: boolean } = { visible: true }) {
     new GLTFLoader()
-      .loadAsync(path, (xhr) => { /*console.log(xhr.loaded / xhr.total)*/ })
+      .loadAsync(this.basePath + fileName, (xhr) => { /*console.log(xhr.loaded / xhr.total)*/ })
       .then((gltf) => {
         gltf.scene.traverse(function (node) {
           if (node instanceof Mesh) {

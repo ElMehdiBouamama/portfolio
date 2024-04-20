@@ -49,11 +49,11 @@ export class GraphicsComponent implements AfterViewInit {
       this.clock = new Clock();
       this.sceneHandler = new SceneHandler(this.el.nativeElement, this.$isReady);
       this.lightsSetup = new LightsSetup(this.sceneHandler.scene, this.$isReady);
-      this.modelLoader = new ModelLoader('../../../assets/', this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
+      this.modelLoader = new ModelLoader(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
       this.cloudsControl = new CloudsSetup(this.sceneHandler.scene, this.sceneHandler.camera, this.$isReady);
       this.particlesControl = new ParticlesSystem(this.sceneHandler.scene, this.$isReady);
-      this.modelLoader.loadHDRI(['imgs/animestyled_hdr.webp', 'imgs/animestyled_hdr-gainmap.webp', 'imgs/animestyled_hdr.json'], this.sceneHandler.renderer);
-      this.modelLoader.loadModel('models/pirate.glb');
+      this.modelLoader.loadHDRI(['/assets/imgs/animestyled_hdr.webp', '/assets/imgs/animestyled_hdr-gainmap.webp', '/assets/imgs/animestyled_hdr.json'], this.sceneHandler.renderer);
+      this.modelLoader.loadModel('/assets/models/pirate.glb');
       this.$isReady.subscribe((x:loadingElements) => {
         let isReady = Object.values(x).reduce((p, c) => p && c);
         this.service.isLoaded$.next(isReady);

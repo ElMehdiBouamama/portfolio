@@ -1,15 +1,14 @@
+import { GainMapLoader } from '@monogrid/gainmap-js';
 import { BehaviorSubject } from 'rxjs';
-import { Camera, Clock, Color, EquirectangularReflectionMapping, Group, Mesh, PMREMGenerator, Scene, Texture, WebGLRenderer } from 'three';
+import { Camera, Clock, Color, EquirectangularReflectionMapping, Group, Mesh, Scene, Texture, WebGLRenderer } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import { loadingElements } from '../graphics.component';
-import { GainMapLoader } from '@monogrid/gainmap-js'
 
 export class ModelLoader {
   HDRI: Texture;
   model: Group;
 
-  constructor(private basePath: string, public scene: Scene, public camera: Camera, private $isReady: BehaviorSubject<loadingElements>) { }
+  constructor(public scene: Scene, public camera: Camera, private $isReady: BehaviorSubject<loadingElements>) { }
 
   addMouseEvents(target: HTMLElement) {
     var mouseDown = false,
@@ -50,7 +49,7 @@ export class ModelLoader {
 
   loadHDRI([texture, gainmap, metadata]: [string, string, string], renderer: WebGLRenderer) {
     new GainMapLoader(renderer)
-      .loadAsync([this.basePath + texture, this.basePath + gainmap, this.basePath + metadata])
+      .loadAsync([texture, gainmap,metadata])
       .then(res => {
         this.scene.background = res.renderTarget.texture;
         this.scene.background.mapping = EquirectangularReflectionMapping;
@@ -62,7 +61,7 @@ export class ModelLoader {
 
   loadModel(fileName: string, options: { visible?: boolean } = { visible: true }) {
     new GLTFLoader()
-      .loadAsync(this.basePath + fileName, (xhr) => { /*console.log(xhr.loaded / xhr.total)*/ })
+      .loadAsync(fileName, (xhr) => { /*console.log(xhr.loaded / xhr.total)*/ })
       .then((gltf) => {
         gltf.scene.traverse(function (node) {
           if (node instanceof Mesh) {
